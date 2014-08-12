@@ -1,0 +1,45 @@
+//= require normalize-rails
+//= require_self
+
+$color-base: #333333;
+$color-text: #dddddd;
+$color-accent: #38761d;
+
+.clearfix {
+  &:before,
+  &:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+nav {
+  @extend .clearfix;
+
+  background-color: $color-base;
+  color: $color-text;
+
+  .brand {
+    padding: 1em 1.5em;
+    float: left;
+
+    border-right: 1px solid $color-accent;
+
+    h1 {
+      font-size: 1.5em;
+      margin: 0;
+    }
+  }
+
+  .tools {
+    float: right;
+  }
+}
+
+header.hero {
+  background-color: #ff0;
+}
