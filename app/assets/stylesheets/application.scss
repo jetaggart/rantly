@@ -5,6 +5,9 @@
 @import "util";
 @import "nav";
 
-header.hero {
-  background-color: #ff0;
+@import "pages/homepage.scss";
+
+body {
+  background-color: $color-base;
+  color: $color-text;
 }

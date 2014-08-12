@@ -1,0 +1,25 @@
+header.hero {
+  background-color: white;
+  color: $color-base;
+
+  padding: 4em;
+
+  h1, h2 {
+    width: 100%;
+    margin: 0;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 8em;
+  }
+}
+
+section.quote {
+  padding: 5em 10em;
+
+  attribute {
+    border-left: 1px solid $color-text;
+    padding-left: 0.5em;
+  }
+}
