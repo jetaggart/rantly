@@ -1,0 +1,22 @@
+nav {
+  @extend .clearfix;
+
+  background-color: $color-base;
+  color: $color-text;
+
+  .brand {
+    padding: 1em 1.5em;
+    float: left;
+
+    border-right: 1px solid $color-accent;
+
+    h1 {
+      font-size: 1.5em;
+      margin: 0;
+    }
+  }
+
+  .tools {
+    float: right;
+  }
+}
