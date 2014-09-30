@@ -5,22 +5,30 @@ nav {
   color: $color-text;
 
   .brand {
-    padding: 1em 1.5em;
     float: left;
+    padding: 24px;
 
     border-right: 1px solid $color-accent;
 
     h1 {
-      font-size: 1.5em;
+      font-size: 26px;
       margin: 0;
     }
   }
 
   .tools {
     float: right;
+    padding: 10px;
 
     .call-to-action {
       @extend .button;
+      font-size: 26px;
+      width: 150px;
+    }
+
+    a {
+        color: white;
+        margin-right: 30px;
     }
   }
 }
