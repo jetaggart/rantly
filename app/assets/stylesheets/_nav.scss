@@ -18,5 +18,9 @@ nav {
 
   .tools {
     float: right;
+
+    .call-to-action {
+      @extend .button;
+    }
   }
 }
