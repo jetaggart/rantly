@@ -23,7 +23,7 @@ describe "Visiting the home page" do
     fill_in "Last name", :with => "Taggart"
     fill_in "Bio", :with => "This is my awesome bio please listen to me I'm awesome a ranting"
 
-    choose "weekly"
+    choose "Weekly"
 
     click_on "Register"
 
