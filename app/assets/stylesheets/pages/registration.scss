@@ -38,4 +38,23 @@ section.registration {
         padding: 3px;
         height: 150px;
     }
+
+    .type-of-ranter {
+        display: inline-block;
+        width: 306.6px;
+        text-align: center;
+
+        label {
+            display: inline-block;
+        }
+    }
+
+    hr {
+        margin: 20px -20px;
+    }
+
+    input[type=submit] {
+        @extend .button;
+        width: 100%;
+    }
 }
