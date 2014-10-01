@@ -1,0 +1,41 @@
+section.registration {
+    background: white;
+    color: black;
+    padding: 20px;
+
+    h2 { margin-top: 0; }
+
+    label {
+        display: block;
+        margin: 10px 0 5px 0;
+    }
+
+    .fields {
+        overflow: hidden;
+    }
+
+    .field {
+        float: left;
+        width: 50%;
+        
+        input {
+            padding: 3px;
+            box-sizing: border-box;
+            width: 100%;
+
+        }
+
+        &:nth-child(odd) {
+            width: 47%;
+            margin-right: 3%;
+        }
+
+    }
+
+    textarea {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 3px;
+        height: 150px;
+    }
+}
