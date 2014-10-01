@@ -9,7 +9,7 @@
 @import "pages/registration.scss";
 
 body {
-    background-color: $color-base;
+    background-color: lighten($color-base, 20%);
     color: $color-text;
 }
 
