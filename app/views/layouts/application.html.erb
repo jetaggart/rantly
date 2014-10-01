@@ -31,6 +31,12 @@
     </div>
   <% end %>
 
+  <% if alert %>
+    <div class="alert">
+      <%= alert %>
+    </div>
+  <% end %>
+
   <%= yield %>
 </main>
 

@@ -9,7 +9,8 @@ class SessionsController < ApplicationController
     if @session.save
       redirect_to dashboard_path, :notice => "Welcome, #{@session.user.username}"
     else
-      render :new, :alert => "Invalid username or password"
+      flash.now.alert = "Invalid username or password"
+      render :new 
     end
   end
 

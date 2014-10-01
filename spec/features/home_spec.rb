@@ -43,4 +43,20 @@ describe "Visiting the home page" do
     expect(page).to have_no_content("Login")
     expect(page).to have_no_content("Join")
   end
+
+  it "doesn't allow a user to login that doesn't exist" do
+    visit root_path
+
+    click_on "Login"
+
+    within("form") do
+      click_on "Login"
+    end
+
+    expect(page).to have_content("Invalid username or password")
+  end
+
+  it "doesn't allow a non-logged in user to see the dashboard" do
+    
+  end
 end
