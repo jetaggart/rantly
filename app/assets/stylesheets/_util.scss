@@ -1,4 +1,26 @@
-$green: #3A7524;
+
+.form-modal {
+    background: white;
+    color: black;
+    padding: 20px;
+    margin-top: 50px;
+
+    h2 { margin-top: 0; }
+
+    label {
+        display: block;
+        margin: 10px 0 5px 0;
+    }
+
+    hr {
+        margin: 20px -20px;
+    }
+
+    input[type=submit] {
+        @extend .button;
+        width: 100%;
+    }
+}
 
 .clearfix {
     &:before,
@@ -29,7 +51,7 @@ $green: #3A7524;
     font-family: 'Helvetica Neue', Helvetica, sans-serif;
     text-transform: uppercase;
 
-    background-color: $green;
+    background-color: $color-green;
 }
 
 .button:active {
@@ -47,5 +69,5 @@ $green: #3A7524;
 }
 
 .button:hover {
-    background-color: lighten($green, 20%);
+    background-color: lighten($color-green, 20%);
 }

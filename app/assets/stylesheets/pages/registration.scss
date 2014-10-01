@@ -1,15 +1,5 @@
 section.registration {
-    background: white;
-    color: black;
-    padding: 20px;
-    margin-top: 50px;
-
-    h2 { margin-top: 0; }
-
-    label {
-        display: block;
-        margin: 10px 0 5px 0;
-    }
+    @extend .form-modal;
 
     .fields {
         overflow: hidden;
@@ -50,12 +40,4 @@ section.registration {
         }
     }
 
-    hr {
-        margin: 20px -20px;
-    }
-
-    input[type=submit] {
-        @extend .button;
-        width: 100%;
-    }
 }
