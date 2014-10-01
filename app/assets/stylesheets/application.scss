@@ -17,3 +17,13 @@ section {
     width: 960px;
     margin: 0 auto;
 }
+
+
+.notice {
+    box-sizing: border-box;
+    padding: 20px;
+    background-color: $color-accent;
+    color: white;
+    width: 100%;
+    text-align: center;
+}
