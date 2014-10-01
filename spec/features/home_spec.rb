@@ -10,7 +10,7 @@ describe "Visiting the home page" do
     expect(page).to have_content("Rantly has allowed")
   end
 
-  it "allows me to register" do
+  it "allows a user to register and log in" do
     visit root_path
 
     click_on "Join"
@@ -28,5 +28,19 @@ describe "Visiting the home page" do
     click_on "Register"
 
     expect(page).to have_content("Thank you for registering")
+
+    click_on "Login"
+
+    within("form") do
+      fill_in "Username", :with => "psylinse"
+      fill_in "Password", :with => "password"
+      click_on "Login"
+    end
+    
+    expect(page).to have_content("Welcome, psylinse")
+    expect(page).to have_content("Dashboard")
+
+    expect(page).to have_no_content("Login")
+    expect(page).to have_no_content("Join")
   end
 end

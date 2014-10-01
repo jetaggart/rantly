@@ -14,9 +14,14 @@
   </div>
 
   <div class="tools">
-    <a href="/">Login</a>
-    <%= link_to "Join", new_user_path, :class => "call-to-action" %>
+    <% if current_user %>
+      <%= link_to "Logout", session_path, :method => :destroy %>
+    <% else %>
+      <%= link_to "Login", new_session_path %>
+      <%= link_to "Join", new_user_path, :class => "call-to-action" %>
+    <% end %>
   </div>
+
 </nav>
 
 <main>

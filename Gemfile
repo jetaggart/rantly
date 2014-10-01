@@ -14,6 +14,10 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'normalize-rails'
 
 group :development do
+  gem 'pry'
+  gem 'pry-doc'
+  gem 'pry-byebug'
+  gem 'method_source'
   gem 'spring'
   gem 'spring-commands-rspec'
 end
