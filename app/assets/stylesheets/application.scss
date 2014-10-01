@@ -8,6 +8,11 @@
 @import "pages/homepage.scss";
 
 body {
-  background-color: $color-base;
-  color: $color-text;
+    background-color: $color-base;
+    color: $color-text;
+}
+
+section {
+    width: 960px;
+    margin: 0 auto;
 }
