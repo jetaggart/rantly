@@ -22,8 +22,17 @@ section {
 .notice {
     box-sizing: border-box;
     padding: 20px;
-    background-color: $color-accent;
     color: white;
     width: 100%;
     text-align: center;
+}
+
+.alert {
+    @extend .notice;
+    background-color: $color-accent;
+}
+
+.alert {
+    @extend .notice;
+    background-color: $color-error;
 }
