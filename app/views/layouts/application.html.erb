@@ -15,11 +15,17 @@
 
   <div class="tools">
     <a href="/">Login</a>
-    <a href="/" class="call-to-action">Join</a>
+    <%= link_to "Join", new_user_path, :class => "call-to-action" %>
   </div>
 </nav>
 
 <main>
+  <% if notice %>
+    <div class="notice">
+      <%= notice %>
+    </div>
+  <% end %>
+
   <%= yield %>
 </main>
 

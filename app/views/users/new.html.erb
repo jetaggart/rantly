@@ -1,0 +1,38 @@
+<section class="registration">
+  <h2>Register</h2>
+
+  <%= form_for @user do |f| %>
+    <div class="field">
+      <%= f.label :username %>
+      <%= f.text_field :username %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password %>
+      <%= f.text_field :password %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+    </div>
+
+
+    <%= f.label :bio %>
+    <%= f.text_area :bio %>
+
+    <%= f.label :type_of_ranter, "How often do you rant?" %>
+    <%= f.collection_radio_buttons :type_of_ranter, User.type_of_ranters, :first, :first %>
+
+    <%= f.submit "Register" %>
+  <% end %>
+
+</section>
+
+
+

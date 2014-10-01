@@ -13,8 +13,10 @@ gem 'jbuilder', '~> 2.0'
 gem 'bcrypt', '~> 3.1.7'
 gem 'normalize-rails'
 
-gem 'spring',        group: :development
-
+group :development do
+  gem 'spring'
+  gem 'spring-commands-rspec'
+end
 
 group :development, :test do
   gem 'rspec-rails'
