@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby "2.1.2"
 
 gem 'rails', '4.1.4'
 gem 'sqlite3'
@@ -14,8 +15,6 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'normalize-rails'
 
 group :development do
-  gem 'pry'
-  gem 'pry-doc'
   gem 'pry-byebug'
   gem 'method_source'
   gem 'spring'
