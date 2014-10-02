@@ -57,6 +57,8 @@ describe "Visiting the home page" do
   end
 
   it "doesn't allow a non-logged in user to see the dashboard" do
-    
+    visit dashboard_path
+
+    expect(page).to have_content("You're not allowed to access that page. Please sign up to continue.")
   end
 end

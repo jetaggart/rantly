@@ -28,7 +28,7 @@ section {
     text-align: center;
 }
 
-.alert {
+.notice {
     @extend .notice;
     background-color: $color-accent;
 }
