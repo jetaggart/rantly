@@ -20,12 +20,11 @@ describe "User authenticating with the site" do
   end
 
   it "allows a logged in user to log out" do
-    User.create!(:username => "psylinse", :password => "password")
+    create_user(:username => "psylinse")
 
     visit root_path
 
     click_on "Login"
-
 
     within("form") do
       fill_in "Username", :with => "psylinse"
