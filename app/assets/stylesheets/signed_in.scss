@@ -8,14 +8,12 @@ aside {
   align-items: center;
   flex-wrap: nowrap;
 
-  .profile-picture {
-    img {
-      flex: 4;
-      display: block;
-      width: 75%;
-      height: auto;
-      margin: auto;
-    }
+  img {
+    flex: 4;
+    display: block;
+    width: 75%;
+    height: auto;
+    margin: auto;
   }
 
   .name {

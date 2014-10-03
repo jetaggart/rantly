@@ -1,8 +1,6 @@
 <% content_for(:content) do %>
     <aside>
-        <div class="profile-picture">
-            <%= image_tag("profile.jpg") %>
-        </div>
+        <%= image_tag("profile.jpg") %>
 
         <div class="name">
             <%= link_to current_user.full_name, edit_user_path(current_user) %>
