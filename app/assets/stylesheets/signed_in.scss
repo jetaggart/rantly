@@ -16,17 +16,18 @@ aside {
       height: 150px;
       margin: auto;
     }
-  }
 
-  .name {
-    margin: 10px;
+    .name {
+      margin: 10px;
 
-    a {
-      font-size: 22px;
-      text-decoration: none;
-      color: $color-text;
+      a {
+        font-size: 22px;
+        text-decoration: none;
+        color: $color-text;
+      }
     }
   }
+
 
   form {
     flex: 8;
@@ -41,6 +42,7 @@ aside {
 
     label {
       flex: 1;
+      padding-top: 20px;
     }
 
     input[type=text] {
