@@ -1,35 +1,43 @@
 nav {
-  @extend .clearfix;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
 
   background-color: $color-base;
   color: $color-text;
 
   .brand {
-    float: left;
-    padding: 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     border-right: 1px solid $color-accent;
 
     h1 {
+      text-align: center;
       font-size: 26px;
       margin: 0;
     }
   }
 
   .tools {
-    float: right;
-    padding: 10px;
+    flex: 12;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+
+    a {
+      font-size: 1rem;
+      color: white;
+      margin-right: 15px;
+    }
 
     .call-to-action {
       @extend .button;
-
-      font-size: 26px;
       width: 150px;
-    }
-
-    a {
-        color: white;
-        margin-right: 30px;
     }
   }
 }

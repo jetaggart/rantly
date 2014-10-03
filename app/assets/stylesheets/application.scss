@@ -1,39 +1,48 @@
 //= require normalize-rails
 //= require_self
-
 @import "colors";
 @import "util";
 @import "nav";
-
-@import "pages/homepage.scss";
-@import "pages/registration.scss";
-@import "pages/login.scss";
+@import "signed_in";
+@import "pages/homepage";
+@import "pages/registration";
+@import "pages/login";
 
 body {
-    background-color: lighten($color-base, 20%);
-    color: $color-text;
+  background-color: lighten($color-base, 20%);
+  color: $color-text;
+  display: flex;
+  flex-direction: column;
 }
 
 section {
-    width: 960px;
-    margin: 0 auto;
+  width: 960px;
+  margin: 0 auto;
 }
 
-
-.notice {
-    box-sizing: border-box;
-    padding: 20px;
-    color: white;
-    width: 100%;
-    text-align: center;
+main {
+  flex: 10;
 }
 
 .notice {
-    @extend .notice;
-    background-color: $color-accent;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  box-sizing: border-box;
+  color: white;
+  width: 100%;
+  text-align: center;
+}
+
+.notice {
+  @extend .notice;
+  background-color: $color-accent;
 }
 
 .alert {
-    @extend .notice;
-    background-color: $color-error;
+  @extend .notice;
+  background-color: $color-error;
 }

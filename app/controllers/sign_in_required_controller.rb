@@ -1,6 +1,8 @@
 class SignInRequiredController < ApplicationController
   before_action :ensure_logged_in_user
 
+  layout "signed_in"
+
   private
 
   def ensure_logged_in_user

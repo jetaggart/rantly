@@ -15,3 +15,15 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
   config.include ObjectCreationMethods
 end
+
+def login_user(user)
+  visit root_path
+
+  click_on "Login"
+
+  within("form") do
+    fill_in "Username", :with => user.username
+    fill_in "Password", :with => user.password
+    click_on "Login"
+  end
+end

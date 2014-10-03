@@ -1,0 +1,21 @@
+html, body{
+  height: 100%;
+}
+
+main {
+  height: 100%;
+}
+.content {
+  display: flex;
+  flex-direction: row;
+  min-height: 100%;
+
+  aside {
+    flex: 1;
+  }
+
+  .main-content {
+    flex: 4;
+    background-color: white;
+  }
+}
