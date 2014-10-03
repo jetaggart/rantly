@@ -8,16 +8,17 @@ aside {
   align-items: center;
   flex-wrap: nowrap;
 
-  img {
+  .profile-picture {
     flex: 4;
-    display: block;
-    width: 75%;
-    height: auto;
-    margin: auto;
+
+    img {
+      width: 150px;
+      height: 150px;
+      margin: auto;
+    }
   }
 
   .name {
-    flex: 1;
     margin: 10px;
 
     a {

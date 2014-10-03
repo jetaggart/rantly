@@ -1,10 +1,12 @@
 <% content_for(:content) do %>
     <aside>
-        <%= image_tag("profile.jpg") %>
-
-        <div class="name">
-            <%= link_to current_user.full_name, edit_user_path(current_user) %>
+        <div class="profile-picture">
+            <%= image_tag("profile.jpg") %>
+            <div class="name">
+                <%= link_to current_user.full_name, edit_user_path(current_user) %>
+            </div>
         </div>
+
 
         <%= form_for @rant do |f| %>
             <%= f.label :title, "A rant about:" %>
