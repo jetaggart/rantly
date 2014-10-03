@@ -8,6 +8,18 @@
             <div class="name">
                 <%= link_to current_user.full_name, edit_user_path(current_user) %>
             </div>
+
+            <div class="new-rant">
+                <%= form_for @rant do |f| %>
+                    <%= f.label :title, "A rant about:" %>
+                    <%= f.text_field :title %>
+                    
+                    <%= f.label :body, "Rant:" %>
+                    <%= f.text_area :body %>
+                    
+                    <%= f.submit "Rant" %>
+                <% end %>
+            </div>
         </aside>
 
         <div class="main-content">

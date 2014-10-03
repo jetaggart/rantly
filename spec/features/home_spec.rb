@@ -38,7 +38,7 @@ describe "Visiting the home page" do
     end
     
     expect(page).to have_content("Welcome, psylinse")
-    expect(page).to have_content("Dashboard")
+    expect(page).to have_content("My Rants")
 
     expect(page).to have_no_content("Login")
     expect(page).to have_no_content("Join")

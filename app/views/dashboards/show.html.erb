@@ -1,1 +1,11 @@
-Dashboard
+<section class="my-rants">
+    <h3>My Rants</h3>
+    <ul>
+        <% @my_rants.each do |rant| %>
+            <li>
+                <h4> <%= rant.title %></h4>
+                <%= rant.body %>
+            </li>
+        <% end %>
+    </ul>
+</section>
