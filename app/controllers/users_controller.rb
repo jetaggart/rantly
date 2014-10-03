@@ -11,6 +11,16 @@ class UsersController < ApplicationController
     redirect_to root_path, :notice => "Thank you for registering"
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+
+    @user.update!(allowed_params)
+    redirect_to dashboard_path, :notice => "Profile updated"
+  end
 
   private
 

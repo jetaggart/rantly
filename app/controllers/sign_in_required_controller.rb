@@ -6,8 +6,11 @@ class SignInRequiredController < ApplicationController
   private
 
   def ensure_logged_in_user
-    unless current_user
-      redirect_to root_path, :alert => "You're not allowed to access that page. Please sign up to continue."
-    end
+    return if current_user
+
+    redirect_to(
+      root_path,
+      :alert => "You're not allowed to access that page. Please sign up to continue."
+    )
   end
 end

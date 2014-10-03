@@ -1,0 +1,44 @@
+<%= form_for @user do |f| %>
+
+    <div class="fields">
+
+        <div class="field">
+            <%= f.label :username %>
+            <%= f.text_field :username %>
+        </div>
+
+        <div class="field">
+            <%= f.label :password %>
+            <%= f.password_field :password %>
+        </div>
+
+        <div class="field">
+            <%= f.label :first_name %>
+            <%= f.text_field :first_name %>
+        </div>
+
+        <div class="field">
+            <%= f.label :last_name %>
+            <%= f.text_field :last_name %>
+        </div>
+
+    </div>
+
+    <div>
+        <%= f.label :bio %>
+        <%= f.text_area :bio %>
+    </div>
+
+    <p>How often do you rant?</p>
+
+    <% User.type_of_ranters.each do |ranter_type| %>
+        <div class=type-of-ranter>
+            <%= f.radio_button :type_of_ranter, ranter_type.first %>
+            <%= f.label :"type_of_ranter_#{ranter_type.first}", ranter_type.first.capitalize %>
+        </div>
+    <% end %>
+
+    <hr>
+
+    <%= f.submit button_text %>
+<% end %>

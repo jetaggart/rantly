@@ -5,6 +5,7 @@ html, body{
 main {
   height: 100%;
 }
+
 .content {
   display: flex;
   flex-direction: row;
@@ -12,6 +13,33 @@ main {
 
   aside {
     flex: 1;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    .profile-picture {
+      flex: 4;
+
+      img {
+        display: block;
+        height: 100%;
+        margin: auto;
+      }
+    }
+
+    .name {
+      flex: 10;
+      margin: 10px;
+
+      a {
+        font-size: 22px;
+        text-decoration: none;
+        color: $color-text;
+      }
+    }
   }
 
   .main-content {
