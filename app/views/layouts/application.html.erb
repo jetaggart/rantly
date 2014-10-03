@@ -1,45 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Rantly</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+    <title>Rantly</title>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="all-content">
 
-<nav>
-  <div class="brand">
-    <h1>Rantly</h1>
-  </div>
+    <nav>
+        <div class="brand">
+            <h1>Rantly</h1>
+        </div>
 
-  <div class="tools">
-    <% if current_user %>
-      <%= link_to "Logout", session_path, :method => :delete, :class => "call-to-action" %>
-    <% else %>
-      <%= link_to "Login", new_session_path %>
-      <%= link_to "Join", new_user_path, :class => "call-to-action" %>
+        <div class="tools">
+            <% if current_user %>
+                <%= link_to "Logout", session_path, :method => :delete, :class => "call-to-action" %>
+            <% else %>
+                <%= link_to "Login", new_session_path %>
+                <%= link_to "Join", new_user_path, :class => "call-to-action" %>
+            <% end %>
+        </div>
+
+    </nav>
+
+    <% if notice %>
+        <div class="notice">
+            <%= notice %>
+        </div>
     <% end %>
-  </div>
 
-</nav>
+    <% if alert %>
+        <div class="alert">
+            <%= alert %>
+        </div>
+    <% end %>
 
-<% if notice %>
-    <div class="notice">
-        <%= notice %>
-    </div>
-<% end %>
+    <main>
+        <%= content_for?(:content) ? yield(:content) : yield %>
+    </main>
 
-<% if alert %>
-    <div class="alert">
-        <%= alert %>
-    </div>
-<% end %>
-
-<main>
-  <%= content_for?(:content) ? yield(:content) : yield %>
-</main>
-
+</div>
 </body>
 </html>
 

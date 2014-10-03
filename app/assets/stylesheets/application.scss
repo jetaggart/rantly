@@ -8,9 +8,17 @@
 @import "pages/registration";
 @import "pages/login";
 
+html, body {
+  height: 100%;
+}
+
 body {
   background-color: lighten($color-base, 20%);
   color: $color-text;
+}
+
+.all-content {
+  height: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -22,6 +30,8 @@ section {
 
 main {
   flex: 10;
+  display: flex;
+  flex-direction: row;
 }
 
 .notice {
