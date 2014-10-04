@@ -15,15 +15,16 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'normalize-rails'
 
 group :development do
-  gem 'pry-byebug'
   gem 'method_source'
   gem 'spring'
   gem 'spring-commands-rspec'
 end
 
 group :development, :test do
+  gem 'pry-byebug'
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'launchy'
 end
 
 

@@ -23,11 +23,6 @@ body {
   flex-direction: column;
 }
 
-section {
-  width: 960px;
-  margin: 0 auto;
-}
-
 main {
   flex: 10;
   display: flex;
@@ -55,4 +50,9 @@ main {
 .alert {
   @extend .notice;
   background-color: $color-error;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
 }
