@@ -1,43 +1,47 @@
 section.registration {
+  flex: 1;
+  overflow-y: scroll;
+
+  form {
     @extend .form-modal;
+  }
+  .fields {
+    overflow: hidden;
+  }
 
-    .fields {
-        overflow: hidden;
-    }
+  .field {
+    float: left;
+    width: 50%;
 
-    .field {
-        float: left;
-        width: 50%;
-        
-        input {
-            box-sizing: border-box;
-            padding: 3px;
-            width: 100%;
-
-        }
-
-        &:nth-child(odd) {
-            width: 47%;
-            margin-right: 3%;
-        }
+    input {
+      box-sizing: border-box;
+      padding: 3px;
+      width: 100%;
 
     }
 
-    textarea {
-        width: 100%;
-        box-sizing: border-box;
-        padding: 3px;
-        height: 150px;
+    &:nth-child(odd) {
+      width: 47%;
+      margin-right: 3%;
     }
 
-    .type-of-ranter {
-        display: inline-block;
-        width: 306.6px;
-        text-align: center;
+  }
 
-        label {
-            display: inline-block;
-        }
+  textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 3px;
+    height: 150px;
+  }
+
+  .type-of-ranter {
+    display: inline-block;
+    width: 306.6px;
+    text-align: center;
+
+    label {
+      display: inline-block;
     }
+  }
 
 }

@@ -1,21 +1,22 @@
 <section class="login">
-  <h2>Login</h2>
 
-  <%= form_for @session, :url => session_path do |f| %>
+    <%= form_for @session, :url => session_path do |f| %>
 
-    <div>
-      <%= f.label :username %>
-      <%= f.text_field :username %>
-    </div>
+        <h2>Login</h2>
 
-    <div>
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-    </div>
+        <div>
+            <%= f.label :username %>
+            <%= f.text_field :username %>
+        </div>
 
-    <hr>
+        <div>
+            <%= f.label :password %>
+            <%= f.password_field :password %>
+        </div>
 
-    <%= f.submit "Login" %>
+        <hr>
 
-  <% end %>
+        <%= f.submit "Login" %>
+
+    <% end %>
 </section>
