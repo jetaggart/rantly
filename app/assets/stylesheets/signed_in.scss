@@ -82,9 +82,11 @@ aside {
 }
 
 li.rant {
-  display: flex;
-  flex-direction: row;
-  height: 150px;
+  @include clearfix;
+
+  height: 175px;
+  width: 800px;
+  margin: 0 auto;
 
   h4 {
     font-size: 22px;
@@ -92,20 +94,27 @@ li.rant {
   }
 
   .author {
-    flex: 1;
+    float: left;
     text-align: center;
+    height: 150px;
 
     img {
-      height: 65%;
+      width: 80px;
     }
 
     .image {
-      height: 100%;
+      width: 100px;
     }
   }
 
   .text {
-    flex: 3;
+    float: left;
+    height: 125px;
+    width: 600px;
+    margin-left: 50px;
+  }
 
+  .actions {
+    float: right;
   }
 }

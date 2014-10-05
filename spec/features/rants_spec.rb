@@ -21,4 +21,22 @@ describe "Creating a rant" do
       expect(page).to have_content("This is a really long rant")
     end
   end
+
+  it "allows a user to delete a rant" do
+    login_user(
+      create_user(:username => "psylinse",
+                  :first_name => "Jeff",
+                  :last_name => "Taggart")
+    )
+
+    fill_in "A rant about:", :with => "I really hate testing"
+    fill_in "Rant:", :with => "This is a really long rant"
+
+    click_on "Rant"
+
+    click_on "Delete"
+
+    expect(page).to have_content("Rant deleted")
+    expect(page).to have_no_content("I really hate testing")
+  end
 end

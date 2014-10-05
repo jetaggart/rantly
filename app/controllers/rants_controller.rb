@@ -9,6 +9,11 @@ class RantsController < ApplicationController
     redirect_to dashboard_path, :notice => "Rant created"
   end
 
+  def destroy
+    Rant.find(params[:id]).destroy!
+    redirect_to dashboard_path, :notice => "Rant deleted"
+  end
+
   private
 
   def allowed_params
