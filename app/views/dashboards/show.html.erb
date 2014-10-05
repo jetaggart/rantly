@@ -1,3 +1,23 @@
+<section class="other-rants">
+    <h3>Latest Rants</h3>
+    <ul>
+        <% @latest_rants.each do |rant| %>
+            <li class="rant">
+                <div class="author">
+                    <h4><%= rant.author.full_name %></h4>
+
+                    <%= image_tag "profile.jpg" %>
+                </div>
+
+                <div class="text">
+                    <h4> <%= rant.title %></h4>
+                    <%= truncate(rant.body, :length => 400) %>
+                </div>
+            </li>
+        <% end %>
+    </ul>
+</section>
+
 <section class="my-rants">
     <h3>My Rants</h3>
     <ul>
@@ -21,3 +41,4 @@
         <% end %>
     </ul>
 </section>
+

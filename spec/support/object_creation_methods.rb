@@ -12,6 +12,20 @@ module ObjectCreationMethods
     new_user(overrides).tap(&:save!)
   end
 
+  def new_rant(overrides = {})
+    defaults = {
+      :title => "This is an auto-generated rant title",
+      :body => "This is an auto-generated rant body",
+      :author => -> { new_user }
+    }
+
+    Rant.new { |rant| apply(rant, defaults, overrides) }
+  end
+
+  def create_rant(overrides = {})
+    new_rant(overrides).tap(&:save!)
+  end
+
   private
 
   def counter
