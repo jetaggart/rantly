@@ -9,9 +9,7 @@
                     <%= image_tag "profile.jpg" %>
 
                     <div class="author-actions">
-                        <%= link_to("Follow",
-                                    followings_path(:following_id => rant.author.id),
-                                    :method => :post) %>
+                        <%= follow_link(rant.author) %>
                     </div>
                 </div>
 

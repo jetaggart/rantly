@@ -1,7 +1,7 @@
 <section class="following">
     <h3>Following</h3>
     <ul>
-        <% @following.each do |user| %>
+        <% @following_users.each do |user| %>
             <li>
                 <p><%= user.full_name %></p>
                 <%= image_tag "profile.jpg" %>

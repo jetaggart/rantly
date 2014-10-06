@@ -9,6 +9,12 @@ class FollowingsController < SignInRequiredController
   end
 
   def index
-    @following = current_user.following
+    @following_users = current_user.following_users
+  end
+
+  def destroy
+    following = Following.find(params[:id])
+    following.destroy!
+    redirect_to :back, :notice => "You are no longer following #{following.following.full_name}"
   end
 end
