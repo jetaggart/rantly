@@ -22,6 +22,7 @@ end
 
 group :development, :test do
   gem 'pry-byebug'
+  gem 'faker'
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'

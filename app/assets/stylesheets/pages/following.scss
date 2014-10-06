@@ -1,0 +1,25 @@
+section.following {
+  ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+
+    li {
+      flex: 300px 1;
+
+      p {
+        text-align: center;
+        width: 100%;
+        font-size: 22px;
+      }
+
+      img {
+        display: block;
+        margin: 0 auto;
+        width: 275px;
+      }
+    }
+  }
+}

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141006000211) do
+ActiveRecord::Schema.define(version: 20141006014042) do
 
   create_table "followings", force: true do |t|
     t.integer  "following_id", null: false
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20141006000211) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "followings", ["follower_id", "following_id"], name: "index_followings_on_follower_id_and_following_id", unique: true
 
   create_table "rants", force: true do |t|
     t.string   "title"

@@ -103,7 +103,7 @@ li.rant {
   }
 
   h4 {
-    font-size: 22px;
+    font-size: 18px;
     margin: 0;
   }
 
@@ -111,6 +111,10 @@ li.rant {
     float: left;
     text-align: center;
     height: 140px;
+
+    h4 {
+      width: 150px;
+    }
 
     img {
       width: 80px;

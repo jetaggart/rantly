@@ -2,7 +2,9 @@ module ObjectCreationMethods
   def new_user(overrides = {})
     defaults = {
       :username => "username#{counter}",
-      :password => "password"
+      :password => "password",
+      :first_name => Faker::Name.first_name,
+      :last_name => Faker::Name.last_name
     }
 
     User.new { |user| apply(user, defaults, overrides) }
