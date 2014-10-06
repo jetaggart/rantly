@@ -32,12 +32,15 @@
 
     <p>How often do you rant?</p>
 
-    <% User.type_of_ranters.each do |ranter_type| %>
-        <div class=type-of-ranter>
-            <%= f.radio_button :type_of_ranter, ranter_type.first %>
-            <%= f.label :"type_of_ranter_#{ranter_type.first}", ranter_type.first.capitalize %>
-        </div>
-    <% end %>
+
+    <div class="type-of-ranters">
+        <% User.type_of_ranters.each do |ranter_type| %>
+            <div class=type-of-ranter>
+                <%= f.radio_button :type_of_ranter, ranter_type.first %>
+                <%= f.label :"type_of_ranter_#{ranter_type.first}", ranter_type.first.capitalize %>
+            </div>
+        <% end %>
+    </div>
 
     <hr>
 

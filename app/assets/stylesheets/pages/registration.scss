@@ -34,9 +34,18 @@ section.registration {
     height: 150px;
   }
 
+  .type-of-ranters {
+    @include clearfix;
+
+    display: block;
+    width: 600px;
+    margin: 0 auto;
+  }
+
   .type-of-ranter {
-    display: inline-block;
-    width: 306.6px;
+    display: block;
+    width: 200px;
+    float: left;
     text-align: center;
 
     label {
