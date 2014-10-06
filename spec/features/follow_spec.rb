@@ -22,6 +22,17 @@ describe "User following another user" do
 
     click_on "Following"
     expect(page).to have_no_content("Follow Me")
+
+    visit dashboard_path
+    click_on "Follow"
+
+    click_on "Following"
+
+    click_on "Unfollow"
+    expect(page).to have_content("You are no longer following Follow Me")
+
+    click_on "Following"
+    expect(page).to have_no_content("Follow Me")
   end
 
 end

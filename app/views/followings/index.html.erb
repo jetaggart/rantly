@@ -5,6 +5,7 @@
             <li>
                 <p><%= user.full_name %></p>
                 <%= image_tag "profile.jpg" %>
+                <%= follow_link(user) %>
             </li>
         <% end %>
     </ul>
