@@ -24,9 +24,7 @@ describe "Creating a rant" do
 
   it "allows a user to delete a rant" do
     login_user(
-      create_user(:username   => "psylinse",
-                  :first_name => "Jeff",
-                  :last_name  => "Taggart")
+      create_user(:username   => "psylinse")
     )
 
     fill_in "A rant about:", :with => "I really hate testing"

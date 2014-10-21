@@ -1,0 +1,31 @@
+<section class="user">
+  <h3>
+    <%= @user.full_name %>
+  </h3>
+
+  <div class="profile-and-type">
+    <%= image_tag "profile.jpg" %>
+
+    <div class="type-of-ranter">
+      <%= @user.type_of_ranter.capitalize %> Ranter
+    </div>
+  </div>
+
+  <div class="bio">
+    <%= simple_format @user.bio %>
+  </div>
+
+  <ul class="rants">
+    <% @user.rants.each do |rant| %>
+      <li class="rant">
+        <div class="title">
+          <%= rant.title %>
+        </div>
+
+        <div class="body">
+          <%= truncate rant.body, :length => 400 %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</section>
