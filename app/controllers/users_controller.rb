@@ -1,4 +1,6 @@
 class UsersController < SignInRequiredController
+  skip_before_action :ensure_logged_in_user,
+                     :only => [:new, :create]
 
   def show
     @user = User.find(params[:id])
@@ -6,6 +8,7 @@ class UsersController < SignInRequiredController
 
   def new
     @user = User.new
+    render :new, :layout => "application"
   end
 
   def create
