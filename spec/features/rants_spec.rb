@@ -48,6 +48,9 @@ describe "Creating a rant" do
                 :body   => "This is some of the body",
                 :author => other_user)
 
+    create_rant(:title  => "This is the second rant from the other user",
+                :author => other_user)
+
     login_user(create_user(:username => "psylinse"))
 
     expect(page).to have_content("Latest Rants")
@@ -56,5 +59,15 @@ describe "Creating a rant" do
     expect(page).to have_content("This is the other rant title")
     expect(page).to have_content("This is some of the body")
     expect(page).to have_no_content("Delete")
+
+    expect(page).to have_content("This is the second rant from the other user")
+
+    click_on("This is the other rant title")
+
+    expect(page).to have_content("John Jankins")
+    expect(page).to have_content("This is the other rant title")
+    expect(page).to have_content("This is some of the body")
+
+    expect(page).to have_no_content("This is the second rant from the other user")
   end
 end

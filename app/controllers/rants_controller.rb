@@ -1,4 +1,8 @@
 class RantsController < ApplicationController
+  def show
+    @rant = Rant.find(params[:id])
+  end
+  
   def create
     rant = Rant.new(
       allowed_params.merge(:author => current_user)

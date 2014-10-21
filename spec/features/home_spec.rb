@@ -43,4 +43,5 @@ describe "Visiting the home page" do
     expect(page).to have_no_content("Login")
     expect(page).to have_no_content("Join")
   end
+
 end

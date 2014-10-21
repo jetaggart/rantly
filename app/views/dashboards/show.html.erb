@@ -13,10 +13,10 @@
                     </div>
                 </div>
 
-                <div class="text">
+                <%= link_to rant, :class => "text" do %>
                     <h4> <%= rant.title %></h4>
                     <%= truncate(rant.body, :length => 400) %>
-                </div>
+                <% end %>
             </li>
         <% end %>
     </ul>

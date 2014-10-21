@@ -1,0 +1,9 @@
+<h1> <%= @rant.title %> </h1>
+
+<section>
+  <%= image_tag "profile.jpg" %>
+
+  <h2>by <%= @rant.author.full_name %> </h2>
+
+  <p> <%= @rant.body %> </p>
+</section>

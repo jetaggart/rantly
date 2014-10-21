@@ -6,5 +6,5 @@ Rails.application.routes.draw do
 
   resources :users, :only => [:new, :create, :edit, :update]
   resources :followings, :only => [:index, :create, :destroy]
-  resources :rants, :only => [:new, :create, :destroy]
+  resources :rants, :only => [:show, :new, :create, :destroy]
 end
