@@ -1,0 +1,34 @@
+section.user {
+  margin: 20px;
+
+  .profile-and-type {
+    @include clearfix;
+
+    img {
+      float: left;
+      width: 25%;
+    }
+
+    
+    .type-of-ranter {
+      float: left;
+      height: 300px;
+      width: 75%;
+      line-height: 300px;
+      font-size: 72px;
+      text-align: center;
+    }
+  }
+
+  ul.rants {
+    li.rant {
+      margin: 0;
+
+      .title {
+        font-weight: bold;
+        font-size: 22px;
+      }
+    }
+    
+  }
+}

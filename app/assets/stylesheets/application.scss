@@ -4,10 +4,12 @@
 @import "util";
 @import "nav";
 @import "signed_in";
+
 @import "pages/homepage";
 @import "pages/registration";
 @import "pages/login";
 @import "pages/following";
+@import "pages/user";
 
 html, body {
   height: 100%;
