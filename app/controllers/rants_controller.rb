@@ -1,4 +1,4 @@
-class RantsController < ApplicationController
+class RantsController < SignInRequiredController
   def show
     @rant = Rant.find(params[:id])
   end

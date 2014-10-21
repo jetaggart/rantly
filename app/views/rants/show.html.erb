@@ -1,9 +1,13 @@
-<h1> <%= @rant.title %> </h1>
+<h3> <%= @rant.title %> </h3>
 
-<section>
-  <%= image_tag "profile.jpg" %>
+<section class="rant">
+  <div class="text">
+    <%= image_tag "profile.jpg" %>
 
-  <h2>by <%= @rant.author.full_name %> </h2>
+    <h2>
+      by <%= @rant.author.full_name %>
+    </h2>
 
-  <p> <%= @rant.body %> </p>
+    <%= simple_format @rant.body %> 
+  </div>
 </section>

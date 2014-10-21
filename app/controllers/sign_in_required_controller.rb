@@ -7,7 +7,7 @@ class SignInRequiredController < ApplicationController
   private
 
   def build_rant
-    @rant = Rant.new
+    @current_user_rant = Rant.new
   end
 
   def ensure_logged_in_user
