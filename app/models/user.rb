@@ -3,10 +3,10 @@ class User < ActiveRecord::Base
 
   enum :type_of_ranter => [:daily, :weekly, :monthly]
 
-  has_many :followings,      :foreign_key => "follower_id"
-  has_many :following_users, :through     => :followings,    :source => "following"
-  has_many :followers,       :foreign_key => "following_id", :class_name => Following
-  has_many :rants,           :foreign_key => :author_id
+  has_many :followings, :foreign_key => "follower_id"
+  has_many :following_users, :through => :followings, :source => "following"
+  has_many :followers, :foreign_key => "following_id", :class_name => Following
+  has_many :rants, :foreign_key => :author_id
 
   validates :username, :type_of_ranter, :bio, :first_name, :last_name,
             :presence => true
