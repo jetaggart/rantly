@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def new
-    @session = UserSession.new
+    @session = UserSession.new(:session => session)
   end
 
   def create
