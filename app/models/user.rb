@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   validates :username, :type_of_ranter, :bio, :first_name, :last_name,
             :presence => true
   validates :username, :uniqueness => true
+  validates :password, :length => { :minimum => 8 }, :if => -> { password.present? }
 
   def full_name
     "#{first_name} #{last_name}"

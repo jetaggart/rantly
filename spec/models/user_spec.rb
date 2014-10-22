@@ -27,6 +27,7 @@ describe User do
 
     it "validates password length" do
       user.password = "1234567"
+      user.valid?
       expect(user.errors[:password]).to be_present
 
       user.password = "12345678"
