@@ -9,6 +9,8 @@ aside {
   align-items: center;
   flex-wrap: nowrap;
 
+  min-height: 650px;
+
   .profile-picture {
     flex: 4;
 
@@ -73,6 +75,8 @@ aside {
   background-color: white;
   color: $color-base;
   overflow-y: scroll;
+
+  min-height: 690px;
 
   h3 {
     width: 100%;
