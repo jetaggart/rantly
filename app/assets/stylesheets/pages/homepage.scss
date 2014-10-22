@@ -11,6 +11,7 @@ header.hero {
   background: url(image-path('hero.jpg')) no-repeat center center fixed;
   background-size: cover;
   color: white;
+  text-shadow: 2px 2px $color-base;
   width: 100%;
 
   padding: 50px 0 130px 0;
