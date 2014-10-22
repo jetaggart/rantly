@@ -6,8 +6,8 @@ class UserSession
   def initialize(options = {})
     self.username = options[:username]
     self.password = options[:password]
-    self.session = options[:session]
-    self.user = User.find_by(:username => username)
+    self.session  = options[:session]
+    self.user     = User.find_by(:username => username)
   end
 
   def save
