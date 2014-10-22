@@ -5,7 +5,7 @@
     <%= image_tag "profile.jpg" %>
 
     <h2>
-      by <%= @rant.author.full_name %>
+      by <%= link_to @rant.author.full_name, @rant.author %>
     </h2>
 
     <%= simple_format @rant.body %> 

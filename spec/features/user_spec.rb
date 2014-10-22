@@ -7,9 +7,9 @@ describe "Viewing other users" do
                              :type_of_ranter => User.type_of_ranters[:daily],
                              :bio            => "This is the users bio")
 
-    create_rant(:title  => "This is a rant title",
-                :body   => "This is a rant body",
-                :author => other_user)
+    rant = create_rant(:title  => "This is a rant title",
+                       :body   => "This is a rant body",
+                       :author => other_user)
 
     login_user(create_user(:username => "psylinse"))
 
@@ -21,5 +21,11 @@ describe "Viewing other users" do
 
     expect(page).to have_content("This is a rant title")
     expect(page).to have_content("This is a rant body")
+
+    visit rant_path(rant)
+
+    click_on "John Jankins"
+
+    expect(page).to have_content("John Jankins")
   end
 end
