@@ -8,8 +8,9 @@
 
 header.hero {
   flex: 1;
-  background-color: white;
-  color: $color-base;
+  background: url(image-path('hero.jpg')) no-repeat center center fixed;
+  background-size: cover;
+  color: white;
   width: 100%;
 
   padding: 50px 0 130px 0;
