@@ -22,12 +22,12 @@ group :development do
 end
 
 group :development, :test do
+  gem "sqlite3"
   gem "pry-byebug"
   gem "faker"
   gem "rspec-rails"
   gem "capybara"
   gem "launchy"
-  gem "sqlite3"
 end
 
 group :production do
