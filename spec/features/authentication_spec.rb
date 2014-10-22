@@ -10,7 +10,7 @@ describe "User authenticating with the site" do
       click_on "Login"
     end
 
-    expect(page).to have_content("Invalid username or password")
+    expect(page).to have_content("Login failed")
   end
 
   it "doesn't allow a non-logged in user to see the dashboard" do
