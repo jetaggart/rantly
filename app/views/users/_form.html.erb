@@ -1,6 +1,8 @@
 <%= form_for @user do |f| %>
     <h2><%= button_text %></h2>
 
+    <%= errors_for(f) %>
+
     <div class="fields">
 
         <div class="field">

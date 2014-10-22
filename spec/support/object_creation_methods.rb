@@ -1,10 +1,12 @@
 module ObjectCreationMethods
   def new_user(overrides = {})
     defaults = {
-      :username => "username#{counter}",
-      :password => "password",
-      :first_name => Faker::Name.first_name,
-      :last_name => Faker::Name.last_name
+      :username       => "username#{counter}",
+      :password       => "password",
+      :first_name     => Faker::Name.first_name,
+      :last_name      => Faker::Name.last_name,
+      :type_of_ranter => User.type_of_ranters[:daily],
+      :bio            => "This is a bio"
     }
 
     User.new { |user| apply(user, defaults, overrides) }

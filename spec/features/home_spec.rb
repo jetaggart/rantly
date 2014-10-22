@@ -44,4 +44,15 @@ describe "Visiting the home page" do
     expect(page).to have_no_content("Join")
   end
 
+  it "shows registration errors" do
+    visit root_path
+
+    click_on "Join"
+
+    click_on "Register"
+
+    expect(page).to have_content("Username can't be blank")
+    expect(page).to have_content("Password can't be blank")
+  end
+
 end

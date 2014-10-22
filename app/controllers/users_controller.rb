@@ -14,8 +14,11 @@ class UsersController < SignInRequiredController
   def create
     @user = User.new(allowed_params)
 
-    @user.save!
-    redirect_to root_path, :notice => "Thank you for registering"
+    if @user.save
+      redirect_to root_path, :notice => "Thank you for registering"
+    else
+      render :new, :layout => "application"
+    end
   end
 
   def edit
