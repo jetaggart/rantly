@@ -1,6 +1,10 @@
 <section class="user">
   <h3>
     <%= @user.full_name %>
+
+    <div class="links">
+      <%= follow_link @user %>
+    </div>
   </h3>
 
   <div class="profile-and-type">

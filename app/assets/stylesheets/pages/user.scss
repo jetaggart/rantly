@@ -1,6 +1,14 @@
 section.user {
   margin: 20px;
 
+  h3 > .links {
+    a {
+      color: black;
+      font-size: 16px;
+      float: right;
+    }
+  }
+
   .profile-and-type {
     @include clearfix;
 
