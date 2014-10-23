@@ -19,6 +19,7 @@ group :development do
   gem "method_source"
   gem "spring"
   gem "spring-commands-rspec"
+  gem "web-console", "2.0.0.beta4"
 end
 
 group :development, :test do
