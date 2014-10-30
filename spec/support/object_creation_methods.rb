@@ -19,7 +19,7 @@ module ObjectCreationMethods
   def new_rant(overrides = {})
     defaults = {
       :title => "This is an auto-generated rant title",
-      :body => "This is an auto-generated rant body",
+      :body => "This is an auto-generated rant body"*50,
       :author => -> { new_user }
     }
 

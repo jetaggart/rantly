@@ -8,7 +8,7 @@ describe "Viewing other users" do
                              :bio            => "This is the users bio")
 
     @rant = create_rant(:title  => "This is a rant title",
-                        :body   => "This is a rant body",
+                        :body   => "This is a rant body"*50,
                         :author => other_user)
 
     login_user(create_user(:username => "psylinse"))

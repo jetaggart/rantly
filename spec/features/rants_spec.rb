@@ -9,7 +9,7 @@ describe "Creating a rant", :js => true do
     )
 
     fill_in "A rant about:", :with => "I really hate testing"
-    fill_in "Rant:", :with => "This is a really long rant"
+    fill_in "Rant:", :with => "This is a really long rant"*50
 
     click_on "Rant"
 
@@ -39,7 +39,7 @@ describe "Creating a rant", :js => true do
     )
 
     fill_in "A rant about:", :with => "I really hate testing"
-    fill_in "Rant:", :with => "This is a really long rant"
+    fill_in "Rant:", :with => "This is a really long rant"*50
 
     click_on "Rant"
 
@@ -54,7 +54,7 @@ describe "Creating a rant", :js => true do
                              :last_name  => "Jankins")
 
     create_rant(:title  => "This is the other rant title",
-                :body   => "This is some of the body",
+                :body   => "This is some of the body"*50,
                 :author => other_user)
 
     create_rant(:title  => "This is the second rant from the other user",
