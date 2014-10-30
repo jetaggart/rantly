@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe "Creating a rant" do
+describe "Creating a rant", :js => true do
   it "allows a user to create a rant" do
     login_user(
       create_user(:username   => "psylinse",
