@@ -1,0 +1,11 @@
+<%= form_for rant, :remote => true do |f| %>
+  <%= errors_for(f) %>
+
+  <%= f.label :title, "A rant about:" %>
+  <%= f.text_field :title %>
+
+  <%= f.label :body, "Rant:" %>
+  <%= f.text_area :body %>
+
+  <%= f.submit "Rant" %>
+<% end %>

@@ -8,9 +8,12 @@ class RantsController < SignInRequiredController
       allowed_params.merge(:author => current_user)
     )
 
-    rant.save!
+    if rant.save
+      render :nothing => true
+    else
+      render :partial => "rants/form", :status => 422, :locals => {:rant => rant}
+    end
 
-    redirect_to dashboard_path, :notice => "Rant created"
   end
 
   def destroy

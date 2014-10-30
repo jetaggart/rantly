@@ -1,27 +1,18 @@
 <% content_for(:content) do %>
-    <aside>
-        <div class="profile-picture">
-            <%= image_tag("profile.jpg") %>
-            <div class="name">
-                <%= link_to current_user.full_name, edit_user_path(current_user) %>
-            </div>
-        </div>
-
-
-        <%= form_for @current_user_rant do |f| %>
-            <%= f.label :title, "A rant about:" %>
-            <%= f.text_field :title %>
-
-            <%= f.label :body, "Rant:" %>
-            <%= f.text_area :body %>
-
-            <%= f.submit "Rant" %>
-        <% end %>
-    </aside>
-
-    <div class="main-content">
-        <%= yield %>
+  <aside>
+    <div class="profile-picture">
+      <%= image_tag("profile.jpg") %>
+      <div class="name">
+        <%= link_to current_user.full_name, edit_user_path(current_user) %>
+      </div>
     </div>
+
+    <%= render "rants/form", :rant => @current_user_rant %>
+  </aside>
+
+  <div class="main-content">
+    <%= yield %>
+  </div>
 <% end %>
 
 <%= render template: "layouts/application" %>

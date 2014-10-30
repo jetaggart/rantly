@@ -22,6 +22,17 @@ describe "Creating a rant", :js => true do
     end
   end
 
+  it "shows errors on the rant form" do
+    login_user(
+      create_user(:username   => "psylinse")
+    )
+
+    click_on "Rant"
+
+    expect(page).to have_content("Title can't be blank")
+    expect(page).to have_content("Body can't be blank")
+  end
+
   it "allows a user to delete a rant" do
     login_user(
       create_user(:username   => "psylinse")

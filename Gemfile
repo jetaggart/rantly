@@ -12,6 +12,7 @@ gem "turbolinks"
 gem "jbuilder"
 gem "bcrypt"
 gem "normalize-rails"
+gem 'jquery-cookie-rails'
 
 group :development do
   gem "pry"

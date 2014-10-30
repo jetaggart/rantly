@@ -12,5 +12,32 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.cookie
 //= require turbolinks
 //= require_tree .
+
+function setFlash(value) {
+  $("nav").after("<div class='notice'>" + value + "</div>");
+}
+
+function checkForFlash() {
+  var flash = $.cookie("flash");
+
+  if (flash) {
+    setFlash(flash);
+    $.removeCookie("flash");
+  }
+}
+
+$(document).on("ready", function() {
+  checkForFlash();
+
+  $("#new_rant")
+    .on("ajax:success", function(event, xhr, status) {
+      $.cookie("flash", "Rant created");
+      window.location.href = window.location.href;
+    })
+    .on("ajax:error", function(event, xhr) {
+      $(event.target).replaceWith(xhr.responseText);
+    });
+});
