@@ -3,6 +3,7 @@ class Rant < ActiveRecord::Base
   has_many :favorites
 
   scope :latest_for, ->(user) { where.not(:author => user) }
+  scope :mentions_for, ->(user) { where("body like ?", "%@#{user.username}%") }
 
   validates :title, :body, :presence => true
 

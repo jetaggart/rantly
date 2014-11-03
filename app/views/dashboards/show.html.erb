@@ -6,6 +6,16 @@
   </ul>
 </section>
 
+<% if @mentions.any? %>
+  <section class="mentioned">
+    <h3>Mentioned</h3>
+
+    <ul>
+      <%= render @mentions %>
+    </ul>
+  </section>
+<% end %>
+
 <section class="my-rants">
   <h3>My Rants</h3>
   <ul>
