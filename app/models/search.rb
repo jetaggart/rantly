@@ -12,7 +12,7 @@ class Search
   private
 
   def terms_to_search
-    ["first_name", "last_name", "username"]
+    ["users.first_name", "users.last_name", "users.username", "rants.body"]
   end
 
   def bind_variable
@@ -24,7 +24,7 @@ class Search
   end
 
   def where_statement
-    terms_to_search.map { |t| "users.#{t} like ?" }.join(" OR ")
+    terms_to_search.map { |t| "#{t} like ?" }.join(" OR ")
   end
 
 end

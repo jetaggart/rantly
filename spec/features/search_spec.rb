@@ -6,7 +6,10 @@ describe "A user searching for rants" do
                        :last_name  => "Taggart",
                        :username   => "psylinse")
 
-    create_rant(:author => user, :title => "Find me!")
+    create_rant(:author => user,
+                :title => "Find me! Please!",
+                :body => "Some text. This is text in the middle. Other text that gets it over the limit. Gah this long. Really, it needs to be longer?? Ahhh whattt???")
+
     create_rant(:title => "Don't find me")
 
     login_user(user)
@@ -22,27 +25,25 @@ describe "A user searching for rants" do
       fill_in "search[query]", :with => query
       click_on "Search"
     end
+
+    expect(page).to have_content("Find me! Please!")
+    expect(page).to have_no_content("Don't find me")
   end
 
   it "allows a user to search by last name" do
     search("Taggart")
-
-    expect(page).to have_content("Find me!")
-    expect(page).to have_no_content("Don't find me")
   end
 
   it "allows a user to search by first name" do
     search("Jeff")
-
-    expect(page).to have_content("Find me!")
-    expect(page).to have_no_content("Don't find me")
   end
 
   it "allows a user to search by first name" do
     search("psylinse")
+  end
 
-    expect(page).to have_content("Find me!")
-    expect(page).to have_no_content("Don't find me")
+  it "allows a user to search by the body" do
+    search("This is text in the middle")
   end
 
 end
