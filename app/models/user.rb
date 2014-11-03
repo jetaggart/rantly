@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_secure_password
 
+  mount_uploader :image, ImageUploader
+
   enum :type_of_ranter => [:daily, :weekly, :monthly]
 
   has_many :followings, :foreign_key => "follower_id"
@@ -10,7 +12,7 @@ class User < ActiveRecord::Base
   has_many :favorites
   has_many :favorite_rants, :through => :favorites, :source => "rant"
 
-  validates :username, :type_of_ranter, :bio, :first_name, :last_name,
+  validates :username, :type_of_ranter, :bio, :first_name, :last_name, :image,
             :presence => true
   validates :username, :uniqueness => true
   validates :password, :length => { :minimum => 8 }, :if => -> { password.present? }

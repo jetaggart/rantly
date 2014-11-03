@@ -2,7 +2,7 @@
   <div class="author">
     <%= link_to rant.author.full_name, rant.author %>
 
-    <%= image_tag "profile.jpg" %>
+    <%= image_tag rant.author.image %>
   </div>
 
   <%= link_to rant, :class => "text" do %>

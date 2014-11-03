@@ -14,6 +14,11 @@ gem "bcrypt"
 gem "normalize-rails"
 gem 'jquery-cookie-rails'
 
+gem "carrierwave"
+gem "cloudinary"
+
+gem "dotenv-rails"
+
 group :development do
   gem "pry"
   gem "pry-doc"

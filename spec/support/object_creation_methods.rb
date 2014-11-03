@@ -6,7 +6,8 @@ module ObjectCreationMethods
       :first_name     => Faker::Name.first_name,
       :last_name      => Faker::Name.last_name,
       :type_of_ranter => User.type_of_ranters[:daily],
-      :bio            => "This is a bio"
+      :bio            => "This is a bio",
+      :image          => File.open(Rails.root.join("spec/support/profile.jpg"))
     }
 
     User.new { |user| apply(user, defaults, overrides) }

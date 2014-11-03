@@ -32,6 +32,7 @@ describe "Visiting the home page" do
     fill_in "First name", :with => "Jeff"
     fill_in "Last name", :with => "Taggart"
     fill_in "Bio", :with => "This is my awesome bio please listen to me I'm awesome a ranting"
+    attach_file("Image", "spec/support/profile.jpg")
 
     choose "Weekly"
 
@@ -49,6 +50,8 @@ describe "Visiting the home page" do
     
     expect(page).to have_content("Welcome, psylinse")
     expect(page).to have_content("My Rants")
+    expect(page).to have_css("img[src$='profile.jpg']")
+
 
     expect(page).to have_no_content("Login")
     expect(page).to have_no_content("Join")

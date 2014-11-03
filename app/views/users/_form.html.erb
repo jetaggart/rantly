@@ -1,50 +1,56 @@
 <%= form_for @user do |f| %>
-    <h2><%= button_text %></h2>
+  <h2><%= button_text %></h2>
 
-    <%= errors_for(f) %>
+  <%= errors_for(f) %>
 
-    <div class="fields">
+  <div class="fields">
 
-        <div class="field">
-            <%= f.label :username %>
-            <%= f.text_field :username %>
-        </div>
-
-        <div class="field">
-            <%= f.label :password %>
-            <%= f.password_field :password %>
-        </div>
-
-        <div class="field">
-            <%= f.label :first_name %>
-            <%= f.text_field :first_name %>
-        </div>
-
-        <div class="field">
-            <%= f.label :last_name %>
-            <%= f.text_field :last_name %>
-        </div>
-
+    <div class="field">
+      <%= f.label :username %>
+      <%= f.text_field :username %>
     </div>
 
-    <div>
-        <%= f.label :bio %>
-        <%= f.text_area :bio %>
+    <div class="field">
+      <%= f.label :password %>
+      <%= f.password_field :password %>
     </div>
 
-    <p>How often do you rant?</p>
-
-
-    <div class="type-of-ranters">
-        <% User.type_of_ranters.each do |ranter_type| %>
-            <div class=type-of-ranter>
-                <%= f.radio_button :type_of_ranter, ranter_type.first %>
-                <%= f.label :"type_of_ranter_#{ranter_type.first}", ranter_type.first.capitalize %>
-            </div>
-        <% end %>
+    <div class="field">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %>
     </div>
 
-    <hr>
+    <div class="field">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+    </div>
 
-    <%= f.submit button_text %>
+    <div class="field">
+      <%= f.hidden_field :image_cache %>
+      <%= f.label :image %>
+      <%= f.file_field :image %>
+    </div>
+
+  </div>
+
+  <div>
+    <%= f.label :bio %>
+    <%= f.text_area :bio %>
+  </div>
+
+  <p>How often do you rant?</p>
+
+
+  <div class="type-of-ranters">
+    <% User.type_of_ranters.each do |ranter_type| %>
+      <div class=type-of-ranter>
+        <%= f.radio_button :type_of_ranter, ranter_type.first %>
+        <%= f.label :"type_of_ranter_#{ranter_type.first}", ranter_type.first.capitalize %>
+      </div>
+    <% end %>
+  </div>
+
+  <hr>
+
+  <%= f.submit button_text %>
 <% end %>

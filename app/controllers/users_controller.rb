@@ -42,7 +42,7 @@ class UsersController < SignInRequiredController
   def allowed_params
     params.require(:user).permit(:username, :password,
                                  :first_name, :last_name,
-                                 :bio, :type_of_ranter)
+                                 :bio, :type_of_ranter, :image)
   end
   
 end

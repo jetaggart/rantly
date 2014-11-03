@@ -8,7 +8,7 @@
   </h3>
 
   <div class="text">
-    <%= image_tag "profile.jpg" %>
+    <%= image_tag @rant.author.image %>
 
     <h2>
       by <%= link_to @rant.author.full_name, @rant.author %>
