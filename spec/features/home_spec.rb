@@ -10,6 +10,17 @@ describe "Visiting the home page" do
     expect(page).to have_content("Rantly has allowed")
   end
 
+  it "shows a welcome back message" do
+    visit root_path
+
+    expect(page).to have_no_content("Welcome back! Consider joining.")
+
+    visit root_path
+
+    expect(page).to have_content("Welcome back! Consider joining.")
+
+  end
+
   it "allows a user to register and log in" do
     visit root_path
 
