@@ -46,4 +46,8 @@ describe "A user searching for rants" do
     search("This is text in the middle")
   end
 
+  it "allows a user to search by the title" do
+    search("Please")
+  end
+
 end

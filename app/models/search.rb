@@ -12,7 +12,8 @@ class Search
   private
 
   def terms_to_search
-    ["users.first_name", "users.last_name", "users.username", "rants.body"]
+    ["users.first_name", "users.last_name", "users.username",
+     "rants.body", "rants.title"]
   end
 
   def bind_variable
