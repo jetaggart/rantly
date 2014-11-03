@@ -2,7 +2,8 @@ require "rails_helper"
 
 describe "A user searching for rants" do
   def search(query)
-    user = create_user(:last_name => "Taggart")
+    user = create_user(:first_name => "Jeff",
+                       :last_name => "Taggart")
 
     create_rant(:author => user, :title => "Find me!")
     create_rant(:title => "Don't find me")
@@ -24,6 +25,13 @@ describe "A user searching for rants" do
 
   it "allows a user to search by last name" do
     search("Taggart")
+
+    expect(page).to have_content("Find me!")
+    expect(page).to have_no_content("Don't find me")
+  end
+
+  it "allows a user to search by first name" do
+    search("Jeff")
 
     expect(page).to have_content("Find me!")
     expect(page).to have_no_content("Don't find me")
