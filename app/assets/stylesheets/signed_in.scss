@@ -162,12 +162,16 @@ section {
     }
   }
 
-  li.rant {
-    margin: 0;
+  ul {
 
-    .title {
-      font-weight: bold;
-      font-size: 22px;
+    li.rant {
+      margin: 0 auto;
+
+      .title {
+        font-weight: bold;
+        font-size: 22px;
+      }
     }
+
   }
 }
