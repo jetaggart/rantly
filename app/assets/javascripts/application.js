@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.cookie
-//= require turbolinks
 //= require_tree .
 
 function setFlash(value) {
@@ -29,15 +28,27 @@ function checkForFlash() {
   }
 }
 
+
+function bindFavorite(target) {
+  $(target)
+    .on("ajax:success", function(event, responseText) {
+      var newButton = $(responseText);
+      bindFavorite(newButton);
+      $(event.target).replaceWith(newButton);
+    });
+}
+
 $(document).on("ready", function() {
   checkForFlash();
 
   $("#new_rant")
-    .on("ajax:success", function(event, xhr, status) {
+    .on("ajax:success", function() {
       $.cookie("flash", "Rant created");
       window.location.href = window.location.href;
     })
     .on("ajax:error", function(event, xhr) {
       $(event.target).replaceWith(xhr.responseText);
     });
+
+  bindFavorite(".favorite");
 });

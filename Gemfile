@@ -8,7 +8,6 @@ gem "uglifier"
 gem "coffee-rails"
 
 gem "jquery-rails"
-gem "turbolinks"
 gem "jbuilder"
 gem "bcrypt"
 gem "normalize-rails"

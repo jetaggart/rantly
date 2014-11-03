@@ -33,6 +33,30 @@ describe "Creating a rant", :js => true do
     expect(page).to have_content("Body can't be blank")
   end
 
+  it "allows a user to favorite a rant" do
+    create_rant(:body => "This is a rant that is to be favorited "*50)
+
+    login_user(
+      create_user(:username   => "psylinse")
+    )
+
+    click_on "This is a rant that is to be favorited"
+
+    within("section", :text => "This is a rant") do
+      click_on "Favorite"
+    end
+
+    click_on "Favorites"
+
+    expect(page).to have_content("This is a rant that is to be favorited")
+
+    click_on "This is a rant"
+    click_on "Unfavorite"
+    click_on "Favorites"
+
+    expect(page).to have_no_content("This is a rant that is to be favorite")
+  end
+
   it "allows a user to delete a rant" do
     login_user(
       create_user(:username   => "psylinse")

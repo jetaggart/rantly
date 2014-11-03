@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   has_many :following_users, :through => :followings, :source => "following"
   has_many :followers, :foreign_key => "following_id", :class_name => Following
   has_many :rants, :foreign_key => :author_id
+  has_many :favorites
+  has_many :favorite_rants, :through => :favorites, :source => "rant"
 
   validates :username, :type_of_ranter, :bio, :first_name, :last_name,
             :presence => true
@@ -23,5 +25,9 @@ class User < ActiveRecord::Base
 
   def following_for(other_user)
     followings.find_by(:following_id => other_user.id)
+  end
+
+  def favorite_for(rant)
+    favorites.find_by(:rant => rant)
   end
 end

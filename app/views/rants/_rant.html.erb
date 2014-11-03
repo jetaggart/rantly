@@ -1,0 +1,16 @@
+<li class="rant">
+  <div class="author">
+    <%= link_to rant.author.full_name, rant.author %>
+
+    <%= image_tag "profile.jpg" %>
+
+    <div class="author-actions">
+      <%= follow_link(rant.author) %>
+    </div>
+  </div>
+
+  <%= link_to rant, :class => "text" do %>
+    <h4> <%= rant.title %></h4>
+    <%= truncate(rant.body, :length => 400) %>
+  <% end %>
+</li>

@@ -1,6 +1,12 @@
-<h3> <%= @rant.title %> </h3>
-
 <section class="rant">
+  <h3>
+    <%= @rant.title %>
+
+    <div class="links">
+      <%= favorite_link @rant %>
+    </div>
+  </h3>
+
   <div class="text">
     <%= image_tag "profile.jpg" %>
 

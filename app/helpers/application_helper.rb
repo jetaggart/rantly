@@ -20,6 +20,22 @@ module ApplicationHelper
     end
   end
 
+  def favorite_link(rant)
+    if rant.favorited_by?(current_user)
+      link_to "Unfavorite",
+              rant_favorite_path(rant, current_user.favorite_for(rant)),
+              :method => :delete,
+              :class => "favorite",
+              :remote => true
+    else
+      link_to "Favorite",
+              rant_favorites_path(rant),
+              :method => :post,
+              :class => "favorite",
+              :remote => true
+    end
+  end
+
   def errors_for(form)
     return unless form.object.errors.present?
 
