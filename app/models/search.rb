@@ -12,7 +12,7 @@ class Search
   private
 
   def terms_to_search
-    ["first_name", "last_name"]
+    ["first_name", "last_name", "username"]
   end
 
   def bind_variable
