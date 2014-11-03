@@ -12,7 +12,7 @@
     <% @my_rants.each do |rant| %>
       <li class="rant">
         <div class="author">
-          <h4><%= rant.author.full_name %></h4>
+          <%= link_to rant.author.full_name, rant.author %>
 
           <%= image_tag "profile.jpg" %>
         </div>

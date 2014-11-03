@@ -151,15 +151,23 @@ li.rant {
   }
 }
 
-section.rant {
-  img {
-    width: 150px;
-    height: 150px;
-    float: left;
-    margin: 0 20px 20px 0;
+section {
+  margin: 20px;
+
+  h3 > .links {
+    a {
+      color: black;
+      font-size: 16px;
+      float: right;
+    }
   }
 
-  .text {
-    margin: 20px;
+  li.rant {
+    margin: 0;
+
+    .title {
+      font-weight: bold;
+      font-size: 22px;
+    }
   }
 }
