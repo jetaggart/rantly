@@ -18,7 +18,6 @@ describe "Visiting the home page" do
     visit root_path
 
     expect(page).to have_content("Welcome back! Consider joining.")
-
   end
 
   it "allows a user to register and log in" do

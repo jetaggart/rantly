@@ -1,6 +1,5 @@
 class Rant < ActiveRecord::Base
   belongs_to :author, :class_name => User
-  # TODO: Test for uniqueness across users
   has_many :favorites
 
   scope :latest_for, ->(user) { where.not(:author => user) }

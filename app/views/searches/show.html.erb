@@ -1,0 +1,12 @@
+<section class="search">
+  <h3>Search</h3>
+
+  <%= form_for @search, :url => search_path, :method => :get do |f| %>
+    <%= f.text_field :query %>
+    <%= f.submit "Search" %>
+  <% end %>
+
+  <ul>
+    <%= render @search.results %>
+  </ul>
+</section>
