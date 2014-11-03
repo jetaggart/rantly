@@ -26,10 +26,10 @@
           <%= rant.title %>
         </div>
 
-        <div class="body">
-          <%= truncate rant.body, :length => 400 %>
-        </div>
+        <%= link_to rant, :class => "body" do %>
+            <%= truncate rant.body, :length => 400 %>
+        <% end %>
       </li>
-    <% end %>
+      <% end %>
   </ul>
 </section>

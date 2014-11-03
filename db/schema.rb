@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20141103041147) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "favorites", force: true do |t|
     t.integer  "user_id"
     t.integer  "rant_id"
@@ -27,7 +30,7 @@ ActiveRecord::Schema.define(version: 20141103041147) do
     t.datetime "updated_at"
   end
 
-  add_index "followings", ["follower_id", "following_id"], name: "index_followings_on_follower_id_and_following_id", unique: true
+  add_index "followings", ["follower_id", "following_id"], name: "index_followings_on_follower_id_and_following_id", unique: true, using: :btree
 
   create_table "rants", force: true do |t|
     t.string   "title"

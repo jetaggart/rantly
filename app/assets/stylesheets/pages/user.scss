@@ -1,4 +1,8 @@
 section.user {
+  a {
+    text-decoration: none;
+  }
+
   .profile-and-type {
     @include clearfix;
 
@@ -6,7 +10,6 @@ section.user {
       float: left;
       width: 25%;
     }
-
     
     .type-of-ranter {
       float: left;

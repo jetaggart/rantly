@@ -1,0 +1,25 @@
+section.search {
+  form {
+    @include clearfix;
+    margin-bottom: 30px;
+
+    input {
+      float: left;
+      display: block;
+    }
+
+    input[type=text] {
+      width: 75%;
+      box-sizing: border-box;
+      height: 43px;
+      font-size: 22px;
+      padding: 5px 5px;
+    }
+
+    input[type=submit] {
+      @extend .button;
+      width: 25%;
+      box-sizing: border-box;
+    }
+  }
+}

@@ -6,10 +6,9 @@ class UsersController < SignInRequiredController
     @user = User.find(params[:id])
     @rants = @user.rants
                 .select("rants.*, COUNT(favorites.id) as favorite_count")
-                .joins(:favorites)
+                .joins("LEFT JOIN favorites ON favorites.rant_id = rants.id")
                 .group("rants.id")
                 .order("favorite_count DESC")
-
   end
 
   def new
