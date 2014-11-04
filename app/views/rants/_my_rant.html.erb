@@ -7,7 +7,7 @@
 
   <%= link_to rant, :class => "text" do %>
     <h4> <%= rant.title %></h4>
-    <%= truncate(rant.body, :length => 400) %>
+    <%= truncate(rant.rendered_body, :length => 400) %>
   <% end %>
 
   <div class="actions">

@@ -83,6 +83,33 @@ describe "Creating a rant", :js => true do
     expect(page).to have_no_content("I really hate testing")
   end
 
+  it "allows markdown in the rant body" do
+    login_user(
+      create_user(:username   => "psylinse")
+    )
+
+    fill_in "A rant about:", :with => "I really hate testing"
+    fill_in "Rant:", :with => """
+# This
+
+## is a rant
+
+* that contains markdown
+* and should be rendered as such
+* I need it to be long enough though
+* so I'll keep talking about stuff
+    """
+
+    click_on "Rant"
+
+    within("section.my-rants") do
+      h1 = find("h1")
+
+      expect(h1).to have_text("This")
+    end
+
+  end
+  
   it "shows other users rants on the homepage" do
     other_user = create_user(:first_name => "John",
                              :last_name  => "Jankins")

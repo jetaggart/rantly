@@ -27,7 +27,7 @@
         </div>
 
         <%= link_to rant, :class => "body" do %>
-            <%= truncate rant.body, :length => 400 %>
+            <%= truncate rant.rendered_body, :length => 400 %>
         <% end %>
       </li>
       <% end %>

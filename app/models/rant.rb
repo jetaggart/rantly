@@ -13,4 +13,10 @@ class Rant < ActiveRecord::Base
   def favorited_by?(user)
     favorites.find_by(:user => user).present?
   end
+
+  def rendered_body
+    Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+      .render(body)
+      .html_safe
+  end
 end

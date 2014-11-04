@@ -14,6 +14,6 @@
       by <%= link_to @rant.author.full_name, @rant.author %>
     </h2>
 
-    <%= simple_format @rant.body %> 
+    <%= @rant.rendered_body %> 
   </div>
 </section>

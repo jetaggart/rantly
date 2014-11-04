@@ -19,6 +19,8 @@ gem "cloudinary"
 
 gem "dotenv-rails"
 
+gem "redcarpet"
+
 group :development do
   gem "pry"
   gem "pry-doc"
