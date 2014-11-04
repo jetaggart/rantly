@@ -13,4 +13,9 @@
     <h4> <%= rant.title %></h4>
     <%= truncate(rant.body, :length => 400) %>
   <% end %>
+
+  
+  <div class="actions">
+    <%= favorite_link rant %>
+  </div>
 </li>

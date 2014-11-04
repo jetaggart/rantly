@@ -55,6 +55,16 @@ describe "Creating a rant", :js => true do
     click_on "Favorites"
 
     expect(page).to have_no_content("This is a rant that is to be favorite")
+
+    visit dashboard_path
+
+    within("section", :text => "This is a rant that is to be favorited") do
+      click_on "Favorite"
+    end
+
+    click_on "Favorites"
+
+    expect(page).to have_content("This is a rant that is to be favorite")
   end
 
   it "allows a user to delete a rant" do
