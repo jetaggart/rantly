@@ -17,5 +17,7 @@
 
 public/uploads
 
-
 TAGS
+
+.idea/
+*.iml
