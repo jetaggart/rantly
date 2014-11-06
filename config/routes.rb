@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resources :users, :only => [:show, :new, :create, :edit, :update]
   resources :followings, :only => [:index, :create, :destroy]
   resources :rants, :only => [:show, :new, :create, :destroy] do
+    member do
+      post :spam
+    end
     resources :favorites, :only => [:create, :destroy]
     resources :comments, :only => [:create]
   end

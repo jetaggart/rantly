@@ -165,6 +165,20 @@ describe "Creating a rant", :js => true do
       expect(page).to have_content("Jeff Taggart")
       expect(page).to have_content("I don't agree with this comment")
     end
+  end
 
+  it "allows a user to mark a rant as spam" do
+    create_rant(:body => "This is a rant that is to be spammed"*50)
+
+    login_user(
+      create_user(:username => "psylinse")
+    )
+
+    click_on("This is a rant that is to be spammed")
+
+    click_on("Spam")
+
+    expect(page).to have_content("Rant has been marked as spam")
+    expect(page).to have_no_content("This is a rant that is to be spammed")
   end
 end

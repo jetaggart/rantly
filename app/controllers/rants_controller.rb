@@ -21,6 +21,12 @@ class RantsController < SignInRequiredController
     redirect_to dashboard_path, :notice => "Rant deleted"
   end
 
+  def spam
+    Rant.find(params[:id]).toggle!(:spam)
+
+    redirect_to dashboard_path, :notice => "Rant has been marked as spam"
+  end
+
   private
 
   def allowed_params
