@@ -4,11 +4,7 @@ class UsersController < SignInRequiredController
 
   def show
     @user = User.find(params[:id])
-    @rants = @user.rants
-                .select("rants.*, COUNT(favorites.id) as favorite_count")
-                .joins("LEFT JOIN favorites ON favorites.rant_id = rants.id")
-                .group("rants.id")
-                .order("favorite_count DESC")
+    @rants = @user.rants_by_favorites
   end
 
   def new

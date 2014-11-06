@@ -32,4 +32,12 @@ class User < ActiveRecord::Base
   def favorite_for(rant)
     favorites.find_by(:rant => rant)
   end
+
+  def rants_by_favorites
+    rants
+      .select("rants.*, COUNT(favorites.id) as favorite_count")
+      .joins("LEFT JOIN favorites ON favorites.rant_id = rants.id")
+      .group("rants.id")
+      .order("favorite_count DESC")
+  end
 end
