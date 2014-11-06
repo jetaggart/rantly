@@ -56,12 +56,15 @@
   cursor: pointer;
   font-weight: bold;
   transition: background 0.1s ease-in-out;
-  color: #fff;
   border-radius: 3px;
   font-family: 'Helvetica Neue', Helvetica, sans-serif;
   text-transform: uppercase;
 
   background-color: $color-green;
+
+  &.warning {
+    background-color: $color-error;
+  }
 }
 
 .button:active {
@@ -80,4 +83,9 @@
 
 .button:hover {
   background-color: lighten($color-green, 20%);
+
+  &.warning {
+    background-color: lighten($color-error, 20%);
+  }
 }
+
