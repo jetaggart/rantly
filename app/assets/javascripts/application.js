@@ -29,11 +29,11 @@ function checkForFlash() {
 }
 
 
-function bindFavorite(target) {
+function bindQuicklink(target) {
   $(target)
     .on("ajax:success", function(event, responseText) {
       var newButton = $(responseText);
-      bindFavorite(newButton);
+      bindQuicklink(newButton);
       $(event.target).replaceWith(newButton);
     });
 }
@@ -50,5 +50,5 @@ $(document).on("ready", function() {
       $(event.target).replaceWith(xhr.responseText);
     });
 
-  bindFavorite(".favorite");
+  bindQuicklink(".quicklink");
 });

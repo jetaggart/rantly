@@ -9,15 +9,17 @@ module ApplicationHelper
   end
 
   def follow_link(user)
-    if user.followed_by? current_user
-      link_to "Unfollow",
-              following_path(current_user.following_for(user)),
-              :method => :delete
+    if user.followed_by?(current_user)
+      text   = "Unfollow"
+      path   = following_path(current_user.following_for(user))
+      method = :delete
     else
-      link_to "Follow",
-              followings_path(:following_id => user),
-              :method => :post
+      text   = "Follow"
+      path   = followings_path(:following_id => user)
+      method = :post
     end
+
+    link_to(text, path, :method => method, :class => "quicklink", :remote => true)
   end
 
   def favorite_link(rant)
@@ -34,7 +36,7 @@ module ApplicationHelper
     link_to("#{rant.favorite_count} - #{text}",
             path,
             :method => method,
-            :class  => "favorite",
+            :class  => "quicklink",
             :remote => true)
   end
 

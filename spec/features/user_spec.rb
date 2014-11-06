@@ -31,7 +31,7 @@ describe "Viewing other users" do
     expect(page).to have_content("John Jankins")
   end
 
-  it "allows a user to follow another user from their profile" do
+  it "allows a user to follow another user from their profile", :js => true do
     click_on "John Jankins"
 
     within("section", :text => "John Jankins") do

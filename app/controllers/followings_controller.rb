@@ -5,7 +5,7 @@ class FollowingsController < SignInRequiredController
     Following.create!(:follower  => current_user,
                       :following => other_user)
 
-    redirect_to :back, :notice => "You are now following #{other_user.full_name}"
+    render :partial => "following", :locals => {:user => other_user}
   end
 
   def index
@@ -14,7 +14,9 @@ class FollowingsController < SignInRequiredController
 
   def destroy
     following = Following.find(params[:id])
+    other_user = following.following
+
     following.destroy!
-    redirect_to :back, :notice => "You are no longer following #{following.following.full_name}"
+    render :partial => "following", :locals => {:user => other_user}
   end
 end
