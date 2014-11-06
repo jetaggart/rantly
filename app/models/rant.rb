@@ -1,6 +1,7 @@
 class Rant < ActiveRecord::Base
   belongs_to :author, :class_name => User
   has_many :favorites
+  has_many :comments, :as => :commentable
 
   scope :latest_for, ->(user) { where.not(:author => user) }
   scope :mentions_for, ->(user) { where("body like ?", "%@#{user.username}%") }

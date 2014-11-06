@@ -1,0 +1,15 @@
+<li class="comment">
+  <div class="author">
+    <%= link_to comment.author.full_name, comment.author %>
+
+    <%= image_tag comment.author.image %>
+
+    <div class="author-actions">
+      <%= follow_link(comment.author) %>
+    </div>
+  </div>
+
+  <div class="text">
+    <%= comment.text %>
+  </div>
+</li>

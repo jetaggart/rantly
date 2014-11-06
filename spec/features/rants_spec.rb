@@ -24,7 +24,7 @@ describe "Creating a rant", :js => true do
 
   it "shows errors on the rant form" do
     login_user(
-      create_user(:username   => "psylinse")
+      create_user(:username => "psylinse")
     )
 
     click_on "Rant"
@@ -37,7 +37,7 @@ describe "Creating a rant", :js => true do
     create_rant(:body => "This is a rant that is to be favorited "*50)
 
     login_user(
-      create_user(:username   => "psylinse")
+      create_user(:username => "psylinse")
     )
 
     click_on "This is a rant that is to be favorited"
@@ -76,7 +76,7 @@ describe "Creating a rant", :js => true do
 
   it "allows a user to delete a rant" do
     login_user(
-      create_user(:username   => "psylinse")
+      create_user(:username => "psylinse")
     )
 
     fill_in "A rant about:", :with => "I really hate testing"
@@ -92,11 +92,11 @@ describe "Creating a rant", :js => true do
 
   it "allows markdown in the rant body" do
     login_user(
-      create_user(:username   => "psylinse")
+      create_user(:username => "psylinse")
     )
 
     fill_in "A rant about:", :with => "I really hate testing"
-    fill_in "Rant:", :with => """
+    fill_in "Rant:", :with => "" "
 # This
 
 ## is a rant
@@ -105,7 +105,7 @@ describe "Creating a rant", :js => true do
 * and should be rendered as such
 * I need it to be long enough though
 * so I'll keep talking about stuff
-    """
+    " ""
 
     click_on "Rant"
 
@@ -116,7 +116,7 @@ describe "Creating a rant", :js => true do
     end
 
   end
-  
+
   it "shows other users rants on the homepage" do
     other_user = create_user(:first_name => "John",
                              :last_name  => "Jankins")
@@ -146,5 +146,25 @@ describe "Creating a rant", :js => true do
     expect(page).to have_content("This is some of the body")
 
     expect(page).to have_no_content("This is the second rant from the other user")
+  end
+
+  it "allows a user to comment on a rant" do
+    create_rant(:body => "This is a rant that is to be commented"*50)
+
+    login_user(
+      create_user(:first_name => "Jeff", :last_name => "Taggart", :username => "psylinse")
+    )
+
+    click_on "This is a rant that is to be commented"
+
+    fill_in "comment[text]", :with => "I don't agree with this comment"
+    click_on "Rant back"
+
+    expect(page).to have_content("Comment posted")
+    within(".comments") do
+      expect(page).to have_content("Jeff Taggart")
+      expect(page).to have_content("I don't agree with this comment")
+    end
+
   end
 end

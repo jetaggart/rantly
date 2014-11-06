@@ -32,7 +32,6 @@ aside {
     }
   }
 
-
   form {
     flex: 8;
     width: 100%;
@@ -142,7 +141,7 @@ li.rant {
     text-decoration: none;
     float: left;
     width: 600px;
-    argin-left: 50px;
+    margin-left: 50px;
   }
 
   .actions {
@@ -161,16 +160,13 @@ section {
     }
   }
 
-  ul {
+  li.rant {
+    margin: 0 auto;
 
-    li.rant {
-      margin: 0 auto;
-
-      .title {
-        font-weight: bold;
-        font-size: 22px;
-      }
+    .title {
+      font-weight: bold;
+      font-size: 22px;
     }
-
   }
+
 }

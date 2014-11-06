@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :followings, :only => [:index, :create, :destroy]
   resources :rants, :only => [:show, :new, :create, :destroy] do
     resources :favorites, :only => [:create, :destroy]
+    resources :comments, :only => [:create]
   end
 
   resources :favorites, :only => [:index]
