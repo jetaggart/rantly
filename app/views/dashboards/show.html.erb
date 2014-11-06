@@ -2,16 +2,16 @@
   <h3>Latest Rants</h3>
 
   <ul>
-    <%= render @latest_rants %>
+    <%= render @dashboard.latest_rants %>
   </ul>
 </section>
 
-<% if @mentions.any? %>
+<% if @dashboard.mentions.any? %>
   <section class="mentioned">
     <h3>Mentioned</h3>
 
     <ul>
-      <%= render @mentions %>
+      <%= render @dashboard.mentions %>
     </ul>
   </section>
 <% end %>
@@ -19,7 +19,7 @@
 <section class="my-rants">
   <h3>My Rants</h3>
   <ul>
-    <% @my_rants.each do |rant| %>
+    <% @dashboard.my_rants.each do |rant| %>
       <%= render "rants/my_rant", :rant => rant %>
     <% end %>
   </ul>

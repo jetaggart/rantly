@@ -42,9 +42,13 @@ describe "Creating a rant", :js => true do
 
     click_on "This is a rant that is to be favorited"
 
+    expect(page).to have_content("0 - Favorite")
+
     within("section", :text => "This is a rant") do
       click_on "Favorite"
     end
+
+    expect(page).to have_content("1 - Unfavorite")
 
     click_on "Favorites"
 
@@ -52,6 +56,9 @@ describe "Creating a rant", :js => true do
 
     click_on "This is a rant"
     click_on "Unfavorite"
+
+    expect(page).to have_content("0 - Favorite")
+
     click_on "Favorites"
 
     expect(page).to have_no_content("This is a rant that is to be favorite")

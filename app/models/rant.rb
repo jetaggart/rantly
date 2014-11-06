@@ -19,4 +19,8 @@ class Rant < ActiveRecord::Base
       .render(body)
       .html_safe
   end
+
+  def favorite_count
+    favorites.count
+  end
 end

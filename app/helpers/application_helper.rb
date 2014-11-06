@@ -22,18 +22,20 @@ module ApplicationHelper
 
   def favorite_link(rant)
     if rant.favorited_by?(current_user)
-      link_to "Unfavorite",
-              rant_favorite_path(rant, current_user.favorite_for(rant)),
-              :method => :delete,
-              :class => "favorite",
-              :remote => true
+      text   = "Unfavorite"
+      path   = rant_favorite_path(rant, current_user.favorite_for(rant))
+      method = :delete
     else
-      link_to "Favorite",
-              rant_favorites_path(rant),
-              :method => :post,
-              :class => "favorite",
-              :remote => true
+      text   = "Favorite"
+      path   = rant_favorites_path(rant)
+      method = :post
     end
+
+    link_to("#{rant.favorite_count} - #{text}",
+            path,
+            :method => method,
+            :class  => "favorite",
+            :remote => true)
   end
 
   def errors_for(form)
