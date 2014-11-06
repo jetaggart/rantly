@@ -1,0 +1,23 @@
+<section class="users">
+  <table>
+    <thead>
+
+    <tr>
+      <th>Name</th>
+      <th>Number of Rants</th>
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.full_name %></td>
+        <td><%= user.rants.count %></td>
+      </tr>
+    <% end %>
+
+    </tbody>
+  </table>
+</section>

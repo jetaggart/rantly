@@ -1,0 +1,12 @@
+<% if current_user.admin? %>
+  <ul>
+    <li><%= nav_link "Users", admin_users_path %></li>
+  </ul>
+<% else %>
+  <ul>
+    <li><%= nav_link "Dashboard", dashboard_path %></li>
+    <li><%= nav_link "Following", followings_path %></li>
+    <li><%= nav_link "Favorites", favorites_path %></li>
+    <li><%= nav_link "Search", search_path %></li>
+  </ul>
+<% end %>

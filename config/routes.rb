@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   root :to => "home#index"
 
+  namespace :admin do
+    resource :dashboard, :only => [:show]
+    resources :users, :only => [:index]
+  end
+
   resource :dashboard, :only => [:show]
   resource :session, :only => [:new, :create, :destroy]
 
