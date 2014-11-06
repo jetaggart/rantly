@@ -1,9 +1,11 @@
 //= require normalize-rails
 //= require_self
+
 @import "colors";
 @import "util";
 @import "nav";
 @import "signed_in";
+@import "admin";
 
 @import "pages/homepage";
 @import "pages/registration";
@@ -65,3 +67,23 @@ ul {
   list-style-type: none;
   padding: 0;
 }
+
+table {
+  width: 100%;
+  border: 1px solid black;
+
+  tr td, tr th {
+    padding: 4px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+  }
+
+  tr:nth-child(even) td {
+    background-color: lightgray;
+  }
+
+  th {
+    background-color: darken(lightgray, 10%);
+  }
+}
+

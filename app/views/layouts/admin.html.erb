@@ -1,0 +1,11 @@
+<% content_for(:content) do %>
+  <div class="admin-spacer"></div>
+
+  <div class="main-content admin">
+    <%= yield %>
+  </div>
+
+  <div class="admin-spacer"></div>
+<% end %>
+
+<%= render template: "layouts/application" %>
