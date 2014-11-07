@@ -18,38 +18,4 @@ section.rant {
     }
 
   }
-
-
-  form {
-    @include clearfix;
-  }
-
-  input {
-    float: left;
-    display: block;
-  }
-
-  input[type=text] {
-    box-sizing: border-box;
-    width: 100%;
-    height: 43px;
-    font-size: 22px;
-    padding: 5px 5px;
-  }
-
-  input[type=submit] {
-    @extend .button;
-    width: 25%;
-    margin: 20px 0 0;
-    box-sizing: border-box;
-    float: right;
-  }
-
-  .comments {
-    li {
-      @extend li.rant;
-      margin: 0;
-    }
-  }
-
 }

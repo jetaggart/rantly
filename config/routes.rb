@@ -19,7 +19,10 @@ Rails.application.routes.draw do
   resource :dashboard, :only => [:show]
   resource :session, :only => [:new, :create, :destroy]
 
-  resources :users, :only => [:show, :new, :create, :edit, :update]
+  resources :users, :only => [:show, :new, :create, :edit, :update] do
+    resources :comments, :only => [:create]
+  end
+
   resources :followings, :only => [:index, :create, :destroy]
   resources :rants, :only => [:show, :new, :create, :destroy] do
     member do

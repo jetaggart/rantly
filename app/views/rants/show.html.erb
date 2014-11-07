@@ -21,15 +21,6 @@
     <%= @rant.rendered_body %>
   </div>
 
-  <div class="comments">
-    <%= form_for Comment.new, :url => rant_comments_path(@rant) do |f| %>
-      <%= f.text_field :text %>
-      <%= f.submit "Rant back" %>
-    <% end %>
-
-    <ul>
-      <%= render @rant.comments %>
-    </ul>
-  </div>
+  <%= render "comments/form", :commentable => @rant, :url => rant_comments_path(@rant) %>
 </section>
 

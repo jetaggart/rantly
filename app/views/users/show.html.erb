@@ -32,4 +32,6 @@
       </li>
       <% end %>
   </ul>
+
+  <%= render "comments/form", :commentable => @user, :url => user_comments_path(@user) %>
 </section>

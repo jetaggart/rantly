@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 
   enum :type_of_ranter => [:daily, :weekly, :monthly]
 
+  has_many :comments, :as => :commentable
   has_many :followings, :foreign_key => "follower_id"
   has_many :following_users, :through => :followings, :source => "following"
   has_many :followers, :foreign_key => "following_id", :class_name => Following

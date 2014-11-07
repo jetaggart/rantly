@@ -1,11 +1,12 @@
 class CommentsController < ApplicationController
   def create
-    rant = Rant.find(params[:rant_id])
-    rant.comments.create!(
+    commentable = User.find_by(:id => params[:user_id]) || Rant.find_by!(:id => params[:rant_id])
+
+    commentable.comments.create!(
       allowed_params.merge(:author => current_user)
     )
 
-    redirect_to rant, :notice => "Comment posted"
+    redirect_to commentable, :notice => "Comment posted"
   end
 
   private

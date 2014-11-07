@@ -1,0 +1,12 @@
+<h3>Comments</h3>
+
+<div class="comments">
+  <%= form_for Comment.new, :url => url do |f| %>
+    <%= f.text_field :text %>
+    <%= f.submit "Rant back" %>
+  <% end %>
+
+  <ul>
+    <%= render commentable.comments %>
+  </ul>
+</div>

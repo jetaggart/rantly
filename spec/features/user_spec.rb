@@ -11,7 +11,11 @@ describe "Viewing other users" do
                         :body   => "This is a rant body"*50,
                         :author => other_user)
 
-    login_user(create_user(:username => "psylinse"))
+    login_user(
+      create_user(:first_name => "Jeff",
+                  :last_name => "Taggart",
+                  :username => "psylinse")
+    )
   end
 
   it "shows another users profile" do
@@ -29,6 +33,19 @@ describe "Viewing other users" do
     click_on "John Jankins"
 
     expect(page).to have_content("John Jankins")
+  end
+
+  it "allows a user to comment on a user's profile" do
+    click_on "John Jankins"
+
+    fill_in "comment[text]", :with => "I don't agree with you at all!"
+    click_on "Rant back"
+
+    expect(page).to have_content("Comment posted")
+    within(".comments") do
+      expect(page).to have_content("Jeff Taggart")
+      expect(page).to have_content("I don't agree with you at all!")
+    end
   end
 
   it "allows a user to follow another user from their profile", :js => true do
