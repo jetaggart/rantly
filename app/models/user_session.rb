@@ -1,5 +1,6 @@
 class UserSession
   extend ActiveModel::Naming
+  include ActiveRecord::Validations
 
   attr_accessor :username, :password, :session, :user
 
@@ -12,8 +13,15 @@ class UserSession
 
   def save
     if user.present? && user.authenticate(password)
-      session[:user_id] = user.id
+      if user.disabled?
+        errors.add(:base, "Account is disabled")
+        false
+      else
+        session[:user_id] = user.id
+        true
+      end
     else
+      errors.add(:base, "Login failed")
       false
     end
   end

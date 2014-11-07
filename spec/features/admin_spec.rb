@@ -14,6 +14,37 @@ describe "An admin user" do
     expect(page).to have_content("Another rant title")
   end
 
+  it "allows an admin to disable a user" do
+    jeff = create_user(:first_name => "Jeff")
+    
+    admin = create_user(:admin => true)
+    login_user(admin)
+
+    click_on "Users"
+
+    within("tr", :text => "Jeff") do
+      click_on "Disable"
+    end
+
+    click_on "Logout"
+    login_user(jeff)
+
+    expect(page).to have_content("Account is disabled")
+
+    login_user(admin)
+
+    click_on "Users"
+
+    within("tr", :text => "Jeff") do
+      click_on "Enable"
+    end
+
+    click_on "Logout"
+    login_user(jeff)
+
+    expect(page).to have_content("Welcome, #{jeff.username}")
+  end
+
   it "allows an admin to see a list of users" do
     create_user(:first_name => "John",
                 :last_name  => "Smith")

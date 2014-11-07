@@ -7,5 +7,10 @@ module Admin
                 .group("users.id")
                 .order("rant_count #{params[:sort] || "DESC"}")
     end
+
+    def disable
+      User.find(params[:id]).toggle!(:disabled)
+      redirect_to :action => :index
+    end
   end
 end

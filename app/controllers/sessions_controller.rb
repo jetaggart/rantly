@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     if @session.save
       redirect_to dashboard_path, :notice => "Welcome, #{@session.user.username}"
     else
-      flash.now.alert = "Login failed"
+      flash.now.alert = @session.errors.full_messages.join(" ")
       render :new
     end
   end

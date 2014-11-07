@@ -52,6 +52,16 @@ module ApplicationHelper
     link_to "#{text} #{caret}", "#{request.path}?sort=#{new_direction}"
   end
 
+  def disable_link(user)
+    text, method = if user.disabled?
+                     ["Enable", :delete]
+                   else
+                     ["Disable", :post]
+                   end
+
+    link_to text, disable_admin_user_path(user), :method => method
+  end
+
   def errors_for(form)
     return unless form.object.errors.present?
 
