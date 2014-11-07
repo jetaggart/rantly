@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resource :dashboard, :only => [:show]
     resources :users, :only => [:index]
+    resources :rants, :only => [:index]
   end
 
   resource :dashboard, :only => [:show]

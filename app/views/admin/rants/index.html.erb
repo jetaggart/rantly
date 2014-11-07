@@ -1,0 +1,27 @@
+<h2>Rants</h2>
+
+<section class="rants">
+  <table>
+    <thead>
+
+      <tr>
+        <th>Name</th>
+        <th>Title</th>
+        <th>Actions</th>
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      <% @rants.each do |rant| %>
+        <tr>
+          <td><%= rant.author.full_name %></td>
+          <td><%= rant.title %></td>
+          <td><%= link_to "View", rant %></td>
+        </tr>
+      <% end %>
+
+    </tbody>
+  </table>
+</section>

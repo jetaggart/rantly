@@ -1,6 +1,7 @@
 <% if current_user.admin? %>
   <ul>
     <li><%= nav_link "Users", admin_users_path %></li>
+    <li><%= nav_link "Rants", admin_rants_path %></li>
   </ul>
 <% else %>
   <ul>

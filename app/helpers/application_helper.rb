@@ -1,3 +1,4 @@
+# coding: utf-8
 module ApplicationHelper
   def nav_link(text, path)
     options = if path == request.path
@@ -38,6 +39,17 @@ module ApplicationHelper
             :method => method,
             :class  => "quicklink",
             :remote => true)
+  end
+
+  def sort_link(text, direction)
+    new_direction, caret = if direction.nil? || direction == "DESC"
+                             ["ASC", "▼"]
+                           else
+                             ["DESC", "▲"]
+                           end
+
+
+    link_to "#{text} #{caret}", "#{request.path}?sort=#{new_direction}"
   end
 
   def errors_for(form)
