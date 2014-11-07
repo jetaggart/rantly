@@ -5,3 +5,41 @@
 h2 {
   text-align: center;
 }
+
+section.rants {
+  .actions {
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+  }
+
+  .rant-type-filter {
+    flex: 1;
+  }
+
+  .date-filter {
+    flex: 3;
+
+    form {
+      @include clearfix;
+    }
+
+    p {
+      display: block;
+      float: left;
+    }
+
+    input[type=text] {
+      width: 90px;
+      padding: 10px;
+      display: block;
+      float: left;
+      margin-left: 50px;
+      margin-right: 50px;
+    }
+
+    input[type=submit] {
+      float: right;
+    }
+  }
+}

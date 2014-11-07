@@ -6,7 +6,7 @@ describe "An admin user" do
     create_rant(:title => "Some rant title")
     create_rant(:title => "Another rant title")
 
-    login_user(create_user(:admin => true))
+    login_admin
 
     click_on "Rants"
 
@@ -54,7 +54,7 @@ describe "An admin user" do
     create_rant(:author => sean)
 
 
-    login_user(create_user(:admin => true))
+    login_admin
 
     expect(page).to have_content("Dashboard")
 
@@ -67,6 +67,60 @@ describe "An admin user" do
     within("tr", :text => "Sean Yonder") do
       expect(page).to have_content("1")
     end
+  end
+
+  it "allows an admin to search for rants within a certain range" do
+    create_rant(:title => "Really far in the past", :created_at => 28.days.ago)
+    create_rant(:title => "Today", :created_at => Time.now)
+    create_rant(:title => "Yesterday", :created_at => 1.day.ago)
+
+    login_admin
+    click_on "Rants"
+
+    expect(page).to have_content("Really far in the past")
+    expect(page).to have_content("Today")
+    expect(page).to have_content("Yesterday")
+
+    fill_in "start_date", :with => ""
+    fill_in "end_date", :with => 27.days.ago.end_of_day
+    click_on "Filter"
+
+    expect(page).to have_content("Really far in the past")
+    expect(page).to have_no_content("Today")
+    expect(page).to have_no_content("Yesterday")
+
+    fill_in "start_date", :with => 28.days.ago.beginning_of_day
+    fill_in "end_date", :with => 27.days.ago.end_of_day
+    click_on "Filter"
+
+    expect(page).to have_content("Really far in the past")
+    expect(page).to have_no_content("Today")
+    expect(page).to have_no_content("Yesterday")
+
+    fill_in "start_date", :with => 3.days.ago.beginning_of_day
+    fill_in "end_date", :with => 1.day.ago.end_of_day
+    click_on "Filter"
+
+    expect(page).to have_no_content("Really far in the past")
+    expect(page).to have_no_content("Today")
+    expect(page).to have_content("Yesterday")
+
+    
+    fill_in "start_date", :with => Date.today
+    fill_in "end_date", :with => ""
+    click_on "Filter"
+
+    expect(page).to have_no_content("Really far in the past")
+    expect(page).to have_content("Today")
+    expect(page).to have_no_content("Yesterday")
+    
+    fill_in "start_date", :with => ""
+    fill_in "end_date", :with => ""
+    click_on "Filter"
+ 
+    expect(page).to have_content("Really far in the past")
+    expect(page).to have_content("Today")
+    expect(page).to have_content("Yesterday")
   end
 
   it "allows an admin to sort users by rants written" do
@@ -99,4 +153,9 @@ describe "An admin user" do
       expect(page).to have_content("John")
     end
   end
+
+  def login_admin
+    login_user(create_user(:admin => true))
+  end
+
 end

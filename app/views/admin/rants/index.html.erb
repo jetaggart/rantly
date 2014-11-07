@@ -1,6 +1,21 @@
 <h2>Rants</h2>
 
 <section class="rants">
+  <div class="actions">
+      <div class="rant-type-filter">
+        &nbsp;
+      </div>
+
+      <div class="date-filter">
+        <%= form_tag nil, :method => :get do %>
+          <%= text_field_tag "start_date", params[:start_date], :data => {:datepicker => nil} %>
+          <p> To </p>
+          <%= text_field_tag "end_date", params[:end_date], :data => {:datepicker => nil} %>
+
+          <%= submit_tag "Filter", :class => "button" %>
+        <% end %>
+      </div>
+  </div>
   <table>
     <thead>
 

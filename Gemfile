@@ -20,6 +20,7 @@ gem "cloudinary"
 gem "dotenv-rails"
 
 gem "redcarpet"
+gem 'pickadate-rails'
 
 group :development do
   gem "pry"
