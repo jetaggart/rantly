@@ -104,7 +104,6 @@ describe "An admin user" do
     expect(page).to have_no_content("Really far in the past")
     expect(page).to have_no_content("Today")
     expect(page).to have_content("Yesterday")
-
     
     fill_in "start_date", :with => Date.today
     fill_in "end_date", :with => ""
