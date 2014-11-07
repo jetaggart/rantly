@@ -3,11 +3,17 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resource :dashboard, :only => [:show]
+
     resources :users, :only => [:index] do
-      post :disable, :on => :member
-      delete :disable, :on => :member
+      member do 
+        post :disable
+        delete :disable
+      end
     end
-    resources :rants, :only => [:index]
+
+    resources :rants, :only => [:index, :destroy] do
+      delete :spam, :on => :member
+    end
   end
 
   resource :dashboard, :only => [:show]

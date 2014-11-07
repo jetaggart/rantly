@@ -3,7 +3,8 @@
 <section class="rants">
   <div class="actions">
       <div class="rant-type-filter">
-        &nbsp;
+        <%= link_to "All", admin_rants_path(:spam => false), :class => (!@viewing_spam ? "selected" : nil) %>
+        <%= link_to "Spam", admin_rants_path(:spam => true), :class => (@viewing_spam ? "selected" : nil) %>
       </div>
 
       <div class="date-filter">
@@ -33,7 +34,14 @@
         <tr>
           <td><%= rant.author.full_name %></td>
           <td><%= rant.title %></td>
-          <td><%= link_to "View", rant %></td>
+          <td>
+            <% if rant.spam? %>
+              <%= link_to "Not spam", spam_admin_rant_path(rant), :method => :delete %>
+              <%= link_to "Delete", admin_rant_path(rant), :method => :delete %>
+            <% else %>
+              <%= link_to "View", rant %>
+            <% end %>
+          </td>
         </tr>
       <% end %>
 

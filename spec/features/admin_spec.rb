@@ -123,6 +123,43 @@ describe "An admin user" do
     expect(page).to have_content("Yesterday")
   end
 
+  it "allows an admin to view spam and resolve it or delete it" do
+    create_rant(:title => "Rant that's not spam", :spam => false)
+    create_rant(:title => "Spam to delete", :spam => true)
+    create_rant(:title => "Spam to resolve", :spam => true)
+
+    login_admin
+
+    click_on "Rants"
+
+    expect(page).to have_content("Rant that's not spam")
+    expect(page).to have_no_content("Spam to delete")
+    expect(page).to have_no_content("Spam to resolve")
+
+    click_on "Spam"
+
+    expect(page).to have_no_content("Rant that's not spam")
+    expect(page).to have_content("Spam to delete")
+    expect(page).to have_content("Spam to resolve")
+
+    within("tr", :text => "Spam to resolve") do
+      click_on "Not spam"
+    end
+
+    within("tr", :text => "Spam to delete") do
+      click_on "Delete"
+    end
+
+    expect(page).to have_no_content("Rant that's not spam")
+    expect(page).to have_no_content("Spam to delete")
+    expect(page).to have_no_content("Spam to resolve")
+
+    click_on "All"
+
+    expect(page).to have_content("Rant that's not spam")
+    expect(page).to have_content("Spam to resolve")
+  end
+
   it "allows an admin to sort users by rants written" do
     user = create_user(:first_name => "Jeff")
     create_rant(:author => user)
