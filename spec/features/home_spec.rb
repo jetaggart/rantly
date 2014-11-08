@@ -21,17 +21,20 @@ describe "Visiting the home page" do
   end
 
   it "allows a user to register and log in" do
+    clear_emails
+
     visit root_path
 
     click_on "Join"
 
     expect(page).to have_content("Register")
 
-    fill_in "Username", :with => "psylinse"
-    fill_in "Password", :with => "password"
-    fill_in "First name", :with => "Jeff"
-    fill_in "Last name", :with => "Taggart"
-    fill_in "Bio", :with => "This is my awesome bio please listen to me I'm awesome a ranting"
+    fill_in "Username",    :with => "psylinse"
+    fill_in "Password",    :with => "password"
+    fill_in "First name",  :with => "Jeff"
+    fill_in "Last name",   :with => "Taggart"
+    fill_in "Email",       :with => "test@example.com"
+    fill_in "Bio",         :with => "This is my awesome bio please listen to me I'm awesome a ranting"
     attach_file("Image", "spec/support/profile.jpg")
 
     choose "Weekly"
@@ -47,11 +50,24 @@ describe "Visiting the home page" do
       fill_in "Password", :with => "password"
       click_on "Login"
     end
+
+    expect(page).to have_content("You must confirm your account")
+
+    open_email("test@example.com")
+    current_email.click_on "confirmations"
+
+    expect(page).to have_content("Your account has been confirmed. Please log in.")
+
+
+    within("form") do
+      fill_in "Username", :with => "psylinse"
+      fill_in "Password", :with => "password"
+      click_on "Login"
+    end
     
     expect(page).to have_content("Welcome, psylinse")
     expect(page).to have_content("My Rants")
     expect(page).to have_css("img[src$='profile.jpg']")
-
 
     expect(page).to have_no_content("Login")
     expect(page).to have_no_content("Join")

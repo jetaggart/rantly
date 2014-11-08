@@ -1,6 +1,9 @@
 class UserSession
   extend ActiveModel::Naming
-  include ActiveRecord::Validations
+  include ActiveModel::Validations
+
+  validate :not_disabled
+  validate :confirmed
 
   attr_accessor :username, :password, :session, :user
 
@@ -13,13 +16,7 @@ class UserSession
 
   def save
     if user.present? && user.authenticate(password)
-      if user.disabled?
-        errors.add(:base, "Account is disabled")
-        false
-      else
-        session[:user_id] = user.id
-        true
-      end
+      valid? && login!
     else
       errors.add(:base, "Login failed")
       false
@@ -29,4 +26,23 @@ class UserSession
   def to_key
     ["user_session"]
   end
+
+  private
+
+  def login!
+    session[:user_id] = user.id
+  end
+
+  def not_disabled
+    if user.disabled?
+      errors.add(:base, "Account is disabled")
+    end
+  end
+
+  def confirmed
+    unless user.confirmed?
+      errors.add(:base, "You must confirm your account")
+    end
+  end
+
 end

@@ -36,6 +36,7 @@ group :development, :test do
   gem "faker"
   gem "rspec-rails"
   gem "capybara"
+  gem "capybara-email"
   gem "selenium-webdriver"
   gem "database_cleaner"
   gem "launchy"

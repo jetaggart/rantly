@@ -16,6 +16,8 @@ class UsersController < SignInRequiredController
     @user = User.new(allowed_params)
 
     if @user.save
+      ConfirmationMailer.confirmation_email(@user).deliver_now
+
       redirect_to root_path, :notice => "Thank you for registering"
     else
       render :new, :layout => "application"
@@ -38,7 +40,8 @@ class UsersController < SignInRequiredController
   def allowed_params
     params.require(:user).permit(:username, :password,
                                  :first_name, :last_name,
-                                 :bio, :type_of_ranter, :image)
+                                 :bio, :type_of_ranter, :image,
+                                 :email)
   end
   
 end

@@ -105,7 +105,7 @@ describe "An admin user" do
     expect(page).to have_no_content("Today")
     expect(page).to have_content("Yesterday")
     
-    fill_in "start_date", :with => Date.today
+    fill_in "start_date", :with => Time.now.beginning_of_day
     fill_in "end_date", :with => ""
     click_on "Filter"
 

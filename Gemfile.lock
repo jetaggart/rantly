@@ -53,6 +53,9 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    capybara-email (2.4.0)
+      capybara (~> 2.4)
+      mail
     carrierwave (0.10.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -227,6 +230,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt
   capybara
+  capybara-email
   carrierwave
   cloudinary
   coffee-rails

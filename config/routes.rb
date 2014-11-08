@@ -23,6 +23,8 @@ Rails.application.routes.draw do
     resources :comments, :only => [:create]
   end
 
+  get "/confirmations" => "confirmations#create"
+
   resources :followings, :only => [:index, :create, :destroy]
   resources :rants, :only => [:show, :new, :create, :destroy] do
     member do

@@ -13,10 +13,12 @@ class User < ActiveRecord::Base
   has_many :favorites
   has_many :favorite_rants, :through => :favorites, :source => "rant"
 
-  validates :username, :type_of_ranter, :bio, :first_name, :last_name, :image,
+  validates :username, :type_of_ranter, :bio, :first_name, :last_name, :image, :email,
             :presence => true
   validates :username, :uniqueness => true
   validates :password, :length => { :minimum => 8 }, :if => -> { password.present? }
+
+  before_create :set_confirmation_token
 
   def full_name
     "#{first_name} #{last_name}"
@@ -32,6 +34,14 @@ class User < ActiveRecord::Base
 
   def favorite_for(rant)
     favorites.find_by(:rant => rant)
+  end
+
+  def confirmed?
+    confirmation_token.nil?
+  end
+
+  def set_confirmation_token
+    self.confirmation_token = SecureRandom.uuid
   end
 
   def rants_by_favorites

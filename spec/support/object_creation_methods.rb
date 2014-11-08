@@ -7,6 +7,7 @@ module ObjectCreationMethods
       :last_name      => Faker::Name.last_name,
       :type_of_ranter => User.type_of_ranters[:daily],
       :bio            => "This is a bio",
+      :email          => "test@example.com",
       :image          => File.open(Rails.root.join("spec/support/profile.jpg"))
     }
 
@@ -14,6 +15,10 @@ module ObjectCreationMethods
   end
 
   def create_user(overrides = {})
+    create_unauthorized_user(overrides).tap { |u| u.update!(:confirmation_token => nil) }
+  end
+
+  def create_unauthorized_user(overrides = {})
     new_user(overrides).tap(&:save!)
   end
 
