@@ -11,14 +11,12 @@ describe RantsPerDay do
 
 
     data = RantsPerDay.new
-
     data_hash = data.as_json
 
     expected_hash = {
       :labels => ["2012-01-01", "2012-01-02", "2012-01-03", "2012-01-04", "2012-01-05"],
       :datasets =>  [
         {
-          :label => "Rants per Day",
           :fillColor => "rgba(220,220,220,0.5)",
           :strokeColor => "rgba(220,220,220,0.8)",
           :highlightFill => "rgba(220,220,220,0.75)",

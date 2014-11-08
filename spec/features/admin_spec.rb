@@ -161,6 +161,7 @@ describe "An admin user" do
     login_admin
 
     expect(page).to have_content("Rants per Day")
+    expect(page).to have_content("Signups per Day")
   end
 
   it "allows an admin to sort users by rants written" do
