@@ -61,6 +61,8 @@ GEM
       activesupport (>= 3.2.0)
       json (>= 1.7)
       mime-types (>= 1.16)
+    chart-js-rails (0.0.7)
+      railties (> 3.1)
     childprocess (0.5.5)
       ffi (~> 1.0, >= 1.0.11)
     cloudinary (1.0.78)
@@ -232,6 +234,7 @@ DEPENDENCIES
   capybara
   capybara-email
   carrierwave
+  chart-js-rails
   cloudinary
   coffee-rails
   database_cleaner

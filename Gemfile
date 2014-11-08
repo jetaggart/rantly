@@ -22,6 +22,8 @@ gem "dotenv-rails"
 gem "redcarpet"
 gem 'pickadate-rails'
 
+gem 'chart-js-rails'
+
 group :development do
   gem "pry"
   gem "pry-doc"

@@ -56,8 +56,6 @@ describe "An admin user" do
 
     login_admin
 
-    expect(page).to have_content("Dashboard")
-
     click_on "Users"
 
     within("tr", :text => "John Smith") do
@@ -157,6 +155,12 @@ describe "An admin user" do
 
     expect(page).to have_content("Rant that's not spam")
     expect(page).to have_content("Spam to resolve")
+  end
+
+  it "shows the admin charts" do
+    login_admin
+
+    expect(page).to have_content("Rants per Day")
   end
 
   it "allows an admin to sort users by rants written" do
