@@ -30,4 +30,17 @@ describe RantsPerDay do
 
     expect(data_hash).to eq(expected_hash)
   end
+
+  it "returns nothing if there are no rants" do
+    data = RantsPerDay.new
+
+    data_hash = data.as_json
+
+    expected_hash = {
+      :labels => [],
+      :datasets =>  []
+    }
+
+    expect(data_hash).to eq(expected_hash)
+  end
 end
