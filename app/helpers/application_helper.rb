@@ -1,12 +1,13 @@
 # coding: utf-8
 module ApplicationHelper
-  def nav_link(text, path)
-    options = if path == request.path
-                {:class => "current"}
-              else
-                {}
-              end
-    link_to text, path, options
+  def nav_link(text, path, options = {})
+    extra_options = if path == request.path
+                      {:class => "current"}
+                    else
+                      {}
+                    end
+    
+    link_to text, path, options.merge(extra_options)
   end
 
   def follow_link(user)

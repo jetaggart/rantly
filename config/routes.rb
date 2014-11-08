@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   namespace :admin do
     resource :dashboard, :only => [:show]
 
+
     resources :users, :only => [:index] do
+      resource :impersonation, :only => [:create, :destroy]
+
       member do 
         post :disable
         delete :disable

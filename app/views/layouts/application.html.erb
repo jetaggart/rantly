@@ -19,13 +19,11 @@
         <div class="spacing"></div>
 
         <div class="logged-in-navigation">
-            <% if current_user %>
-                <%= render 'user_nav' %>
-            <% end %>
+          <%= render 'user_nav' %>
         </div>
 
         <div class="tools">
-            <% if current_user %>
+            <% if current_user || current_admin %>
                 <%= link_to "Logout", session_path, :method => :delete, :class => "call-to-action" %>
             <% else %>
                 <%= link_to "Login", new_session_path %>

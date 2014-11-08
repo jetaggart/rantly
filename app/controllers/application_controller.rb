@@ -6,9 +6,18 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
+  def current_admin
+    @_current_admin ||= find_current_admin
+  end
+  helper_method :current_admin
+
   private
 
   def find_current_user
     User.find_by(:id => session[:user_id])
+  end
+
+  def find_current_admin
+    User.find_by(:id => session[:admin_id], :admin => true)
   end
 end

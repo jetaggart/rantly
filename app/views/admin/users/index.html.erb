@@ -36,7 +36,11 @@
           <td><%= user.full_name %></td>
           <td><%= user.rants.count %></td>
           <td><%= user.disabled? ? "✓" : "" %></td>
-          <td><%= disable_link user %></td>
+          <td>
+            <%= disable_link user %>
+            |
+            <%= link_to "Impersonate", admin_user_impersonation_path(user), :method => :post %>
+          </td>
         </tr>
       <% end %>
 

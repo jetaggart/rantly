@@ -30,7 +30,11 @@ class UserSession
   private
 
   def login!
-    session[:user_id] = user.id
+    if user.admin?
+      session[:admin_id] = user.id
+    else
+      session[:user_id] = user.id
+    end
   end
 
   def not_disabled

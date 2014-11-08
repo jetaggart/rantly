@@ -195,6 +195,34 @@ describe "An admin user" do
     end
   end
 
+  it "allows an admin to login as a user" do
+    user = create_user(:first_name => "Jeff")
+    create_rant(:author => user, :title => "This is Jeff's rant")
+
+    login_admin
+
+    click_on "Users"
+
+    within("tr", :text => "Jeff") do
+      click_on "Impersonate"
+    end
+
+    expect(page).to have_content("My Rants")
+
+    within("section", :text => "My Rants") do
+      expect(page).to have_content("This is Jeff's rant")
+    end
+
+    visit admin_dashboard_path
+
+    expect(page).to have_content("Rants per Day")
+
+    visit dashboard_path
+    click_on "Back to admin"
+
+    expect(page).to have_content("Rants per Day")
+  end
+
   def login_admin
     login_user(create_user(:admin => true))
   end
