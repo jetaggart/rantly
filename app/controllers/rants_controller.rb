@@ -4,16 +4,17 @@ class RantsController < SignInRequiredController
   end
   
   def create
-    rant = Rant.new(
-      allowed_params.merge(:author => current_user)
-    )
+    rant = Rant.new(allowed_params.merge(:author => current_user))
 
     if rant.save
+      rant.author.followers.each do |follower| 
+        RantNotificationMailer.rant_notification_email(rant, follower.follower).deliver_now
+      end
+
       render :nothing => true
     else
       render :partial => "rants/form", :status => 422, :locals => {:rant => rant}
     end
-
   end
 
   def destroy

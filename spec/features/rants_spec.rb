@@ -96,7 +96,7 @@ describe "Creating a rant", :js => true do
     )
 
     fill_in "A rant about:", :with => "I really hate testing"
-    fill_in "Rant:", :with => "" "
+    fill_in "Rant:", :with => """
 # This
 
 ## is a rant
@@ -105,7 +105,7 @@ describe "Creating a rant", :js => true do
 * and should be rendered as such
 * I need it to be long enough though
 * so I'll keep talking about stuff
-    " ""
+    """
 
     click_on "Rant"
 

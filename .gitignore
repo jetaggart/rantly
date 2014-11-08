@@ -21,3 +21,5 @@ TAGS
 
 .idea/
 *.iml
+
+.env
