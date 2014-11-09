@@ -162,6 +162,7 @@ describe "An admin user" do
 
     expect(page).to have_content("Rants per Day")
     expect(page).to have_content("Signups per Day")
+    expect(page).to have_content("Logins per Hour (UTC)")
   end
 
   it "allows an admin to sort users by rants written" do
