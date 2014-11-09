@@ -1,7 +1,9 @@
 class Search
-  include ActiveModel::Model
-
   attr_accessor :query
+
+  def initialize(query)
+    @query = query
+  end
 
   def results
     return [] if query.blank?

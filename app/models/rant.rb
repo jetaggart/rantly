@@ -18,11 +18,15 @@ class Rant < ActiveRecord::Base
 
   def rendered_body
     Redcarpet::Markdown.new(Redcarpet::Render::HTML)
-      .render(body)
+      .render(hashtagify(body))
       .html_safe
   end
 
   def favorite_count
     favorites.count
+  end
+
+  def hashtagify(text)
+    text.gsub(/\#(\w+)/, '<a href="/search?query=\1">#\1</a>')
   end
 end

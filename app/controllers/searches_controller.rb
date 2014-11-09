@@ -1,7 +1,7 @@
 class SearchesController < SignInRequiredController
 
   def show
-    @search = Search.new(params[:search] || {:query => nil})
+    @search = Search.new(params[:query])
   end
 
 end
