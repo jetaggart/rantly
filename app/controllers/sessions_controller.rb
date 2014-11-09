@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
     @session = UserSession.new(allowed_params.merge(:session => session))
 
     if @session.save
+      Event.publish(:logins, :username => @session.user.username)
       redirect_to user_path, :notice => "Welcome, #{@session.user.username}"
     else
       flash.now.alert = @session.errors.full_messages.join(" ")

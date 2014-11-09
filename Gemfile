@@ -23,6 +23,7 @@ gem "redcarpet"
 gem 'pickadate-rails'
 
 gem 'chart-js-rails'
+gem 'keen'
 
 group :development do
   gem "pry"
