@@ -18,7 +18,7 @@ class Rant < ActiveRecord::Base
 
   def rendered_body
     Redcarpet::Markdown.new(Redcarpet::Render::HTML)
-      .render(hashtagify(body))
+      .render(hashtagify(body.chomp.strip))
       .html_safe
   end
 
