@@ -4,7 +4,7 @@
         <% @following_users.each do |user| %>
             <li>
                 <p><%= user.full_name %></p>
-                <%= image_tag "profile.jpg" %>
+                <%= image_tag user.image_url %>
                 <%= follow_link(user) %>
             </li>
         <% end %>
