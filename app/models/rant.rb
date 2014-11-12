@@ -27,6 +27,6 @@ class Rant < ActiveRecord::Base
   end
 
   def hashtagify(text)
-    text.gsub(/\#(\w+)/, '<a href="/search?query=\1">#\1</a>')
+    text.gsub(/\#(\w+)/, '<a href="/search?query=%23\1">#\1</a>')
   end
 end
