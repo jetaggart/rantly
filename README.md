@@ -2,4 +2,4 @@
 
 http://morning-reaches-3888.herokuapp.com/
 
-<a href='/'>hello</a>
+<script>alert('hello');</script>
